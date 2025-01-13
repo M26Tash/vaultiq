@@ -1,20 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:vaultiq/src/common/di/injector.dart';
+import 'package:vaultiq/src/features/app/pages/app.dart';
 
 void main() {
-  runApp(const MainApp());
-}
+  injectDependencies();
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
-  }
+  runApp(const App());
 }
