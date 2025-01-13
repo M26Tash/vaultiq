@@ -45,6 +45,3 @@ jobs:
         run: |
           flutter build apk
 
-      - name: Build iOS
-        run: |
-          flutter build ios
