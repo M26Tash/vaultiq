@@ -25,7 +25,6 @@ analyzer:
     - "**/*.gr.dart"
     - "**/*.freezed.dart"
     - "**/*.config.dart"
-    - "**/.env"
 
 dart_code_metrics:
   extends:
