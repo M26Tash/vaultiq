@@ -17,7 +17,6 @@ analyzer:
     sort_pub_dependencies: ignore
     unawaited_futures: ignore
     sort_constructors_first: ignore
-    asset_does_not_exist: ignore
 
   exclude:
     - "build/**"
@@ -26,7 +25,6 @@ analyzer:
     - "**/*.gr.dart"
     - "**/*.freezed.dart"
     - "**/*.config.dart"
-    - ".env"
 
 dart_code_metrics:
   extends:
