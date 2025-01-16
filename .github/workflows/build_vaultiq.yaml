@@ -34,6 +34,9 @@ jobs:
           flutter pub outdated
 
       - name: Analyze code
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
         run: |
           flutter analyze
 
