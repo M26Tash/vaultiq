@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/widgets.dart';
-import 'package:vaultiq/src/common/navigation/entities/custom_route.dart';
+import 'package:vaultiq/src/common/navigation/entities/customized_route.dart';
 
 extension AutoRouterContextExtension on BuildContext {
   void navigateToRoute(CustomizedRoute route) {

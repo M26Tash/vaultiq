@@ -99,11 +99,155 @@ abstract class VaultiqLocalization {
     Locale('tr')
   ];
 
-  /// No description provided for @hello.
+  /// No description provided for @welcomeBack.
   ///
   /// In en, this message translates to:
-  /// **'hello'**
-  String get hello;
+  /// **'Welcome Back!'**
+  String get welcomeBack;
+
+  /// No description provided for @createAnAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Create an Account'**
+  String get createAnAccount;
+
+  /// No description provided for @signIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in'**
+  String get signIn;
+
+  /// No description provided for @register.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get register;
+
+  /// No description provided for @emailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Email address'**
+  String get emailAddress;
+
+  /// No description provided for @emailExample.
+  ///
+  /// In en, this message translates to:
+  /// **'example@gmail.com'**
+  String get emailExample;
+
+  /// No description provided for @createAPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Create a password'**
+  String get createAPassword;
+
+  /// No description provided for @mustBeEightCharacters.
+  ///
+  /// In en, this message translates to:
+  /// **'must be 8 characters'**
+  String get mustBeEightCharacters;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm password'**
+  String get confirmPassword;
+
+  /// No description provided for @reEnterPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'re-enter password'**
+  String get reEnterPassword;
+
+  /// No description provided for @otherRegisterOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Other register options'**
+  String get otherRegisterOptions;
+
+  /// No description provided for @yourEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Your email'**
+  String get yourEmail;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @forgotPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Forgot password?'**
+  String get forgotPassword;
+
+  /// No description provided for @otherSignInOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Other sign in options'**
+  String get otherSignInOptions;
+
+  /// No description provided for @continues.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get continues;
+
+  /// No description provided for @chooseTheCurrency.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose the currency'**
+  String get chooseTheCurrency;
+
+  /// No description provided for @selectYourDefaultCurrency.
+  ///
+  /// In en, this message translates to:
+  /// **'Select your default currency. You can add more later'**
+  String get selectYourDefaultCurrency;
+
+  /// No description provided for @search.
+  ///
+  /// In en, this message translates to:
+  /// **'Search'**
+  String get search;
+
+  /// No description provided for @dontWorryItHappens.
+  ///
+  /// In en, this message translates to:
+  /// **'Don’t worry! It happens. Please enter the email associated with your account'**
+  String get dontWorryItHappens;
+
+  /// No description provided for @enterYourEmailAddress.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter you email address'**
+  String get enterYourEmailAddress;
+
+  /// No description provided for @reset.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get reset;
+
+  /// No description provided for @enterCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter code'**
+  String get enterCode;
+
+  /// No description provided for @weveSentAOtpToYOurEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'We’ve sent a One-Time Password (OTP) to your email '**
+  String get weveSentAOtpToYOurEmail;
+
+  /// No description provided for @invalidOtpTryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid OTP. Please check the code and try again'**
+  String get invalidOtpTryAgain;
 }
 
 class _VaultiqLocalizationDelegate extends LocalizationsDelegate<VaultiqLocalization> {

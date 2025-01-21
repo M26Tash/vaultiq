@@ -9,7 +9,7 @@ class ThemeSharedCubit extends Cubit<ThemeSharedState> {
   ThemeSharedCubit()
       : super(
           const ThemeSharedState(
-            themeType: ThemeType.light,
+            themeType: ThemeType.dark,
           ),
         );
 }

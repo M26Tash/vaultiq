@@ -19,55 +19,73 @@ const _chineseSilver = Color(0xFFCCCCCC);
 
 const _transparent = Color(0x00000000);
 
+const _americanGreen = Color(0xFF28A745);
+const _ufoGreen = Color(0xFF34C759);
+const _rustyRed = Color(0xFFDC3545);
+const _coralRed = Color(0xFFFF3B30);
+
+const _forestGreen = Color(0xFF218838);
+const _ufoGreenDark = Color(0xFF2ECC71);
+const _cardinal = Color(0xFFC82333);
+const _carminePink = Color(0xFFE74C3C);
+
 const lightTheme = VaultiqTheme(
   isDark: false,
-  primaryBackgroundColor: _white,
-  secondaryBackgroundColor: _cultured,
-  tertiaryBackgroundColor: _chineseSilver,
-  mainAppColor: _orange,
-  secondaryColor: _royalOrange,
-  tertiaryColor: _lemonYellow,
-  quaternaryColor: _lemonYellow,
-  primaryAccent: _cultured,
-  secondaryAccent: _philippineGray,
-  defaultIconColor: _chineseSilver,
-  secondaryIconColor: _darkJungleGreen,
+  backgroundColor: _white,
+  cardBackgroundColor: _cultured,
+  overlayBackgroundColor: _chineseSilver,
+  primaryColor: _orange,
+  accentColor: _royalOrange,
+  highlightColor: _lemonYellow,
+  backgroundAccentColor: _lemonYellow,
+  primaryAccentColor: _cultured,
+  secondaryAccentColor: _philippineGray,
+  primaryGreenColor: _americanGreen,
+  accentGreenColor: _ufoGreen,
+  primaryRedColor: _rustyRed,
+  accentRedColor: _coralRed,
+  primaryIconColor: _darkJungleGreen,
+  secondaryIconColor: _philippineGray,
   transparent: _transparent,
-  primaryTextColor: _darkJungleGreen,
-  secondaryTextColor: _outerSpace,
-  tertiaryTextColor: _outerSpace,
-  quaternaryTextColor: _outerSpace,
-  fivefoldTextColor: _outerSpace,
-  whiteTextColor: _white,
-  blackColor: _black,
+  bodyTextColor: _darkJungleGreen,
+  subTextColor: _outerSpace,
+  hintTextColor: _philippineGray,
+  labelTextColor: _chineseWhite,
+  highlightTextColor: _outerSpace,
+  lightTextColor: _white,
+  black: _black,
   fontFamily: FontFamily.interFamily,
-  statusBarBrightness: Brightness.dark,
+  statusBarTheme: Brightness.dark,
   navigationBarBrightness: Brightness.light,
 );
 
 const darkTheme = VaultiqTheme(
   isDark: true,
-  primaryBackgroundColor: _darkJungleGreen,
-  secondaryBackgroundColor: _darkCharcoal,
-  tertiaryBackgroundColor: _outerSpace,
-  mainAppColor: _orange,
-  secondaryColor: _royalOrange,
-  tertiaryColor: _lemonYellow,
-  quaternaryColor: _lemonYellow,
-  primaryAccent: _cultured,
-  secondaryAccent: _philippineGray,
-  defaultIconColor: _outerSpace,
-  secondaryIconColor: _white,
+  backgroundColor: _darkJungleGreen,
+  cardBackgroundColor: _darkCharcoal,
+  overlayBackgroundColor: _outerSpace,
+  primaryColor: _orange,
+  accentColor: _royalOrange,
+  highlightColor: _lemonYellow,
+  backgroundAccentColor: _lemonYellow,
+  primaryAccentColor: _cultured,
+  secondaryAccentColor: _philippineGray,
+  primaryGreenColor: _forestGreen,
+  accentGreenColor: _ufoGreenDark,
+  primaryRedColor: _cardinal,
+  accentRedColor: _carminePink,
+  primaryIconColor: _white,
+  secondaryIconColor: _philippineGray,
   transparent: _transparent,
-  primaryTextColor: _white,
-  secondaryTextColor: _chineseWhite,
-  tertiaryTextColor: _chineseWhite,
-  quaternaryTextColor: _chineseWhite,
-  fivefoldTextColor: _chineseWhite,
-  whiteTextColor: _white,
-  blackColor: _black,
+  bodyTextColor: _white,
+  subTextColor: _chineseWhite,
+  hintTextColor: _philippineGray,
+  labelTextColor: _chineseWhite,
+  highlightTextColor: _chineseWhite,
+  lightTextColor: _white,
+  black: _black,
   fontFamily: FontFamily.interFamily,
-  statusBarBrightness: Brightness.dark,
+  statusBarTheme: Brightness.dark,
   navigationBarBrightness: Brightness.dark,
 );
 
@@ -77,8 +95,8 @@ ThemeData generateThemeData(VaultiqTheme theme) {
     brightness: Brightness.light,
     fontFamily: theme.fontFamily,
     textSelectionTheme: TextSelectionThemeData(
-      selectionColor: theme.mainAppColor,
-      selectionHandleColor: theme.mainAppColor,
+      selectionColor: theme.primaryColor,
+      selectionHandleColor: theme.primaryColor,
     ),
     textTheme: const TextTheme(
       displayLarge: TextStyle(
@@ -127,7 +145,7 @@ ThemeData generateThemeData(VaultiqTheme theme) {
       scrolledUnderElevation: 0,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: theme.transparent,
-        statusBarIconBrightness: theme.statusBarBrightness,
+        statusBarIconBrightness: theme.statusBarTheme,
         systemNavigationBarColor: theme.transparent,
         systemNavigationBarIconBrightness: theme.navigationBarBrightness,
       ),

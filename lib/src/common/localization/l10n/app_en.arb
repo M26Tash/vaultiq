@@ -1,3 +1,27 @@
 {
-    "hello": "hello"
+    "welcomeBack": "Welcome Back!",
+    "createAnAccount": "Create an Account",
+    "signIn": "Sign in",
+    "register": "Register",
+    "emailAddress": "Email address",
+    "emailExample": "example@gmail.com",
+    "createAPassword": "Create a password",
+    "mustBeEightCharacters": "must be 8 characters",
+    "confirmPassword": "Confirm password",
+    "reEnterPassword": "re-enter password",
+    "otherRegisterOptions": "Other register options",
+    "yourEmail": "Your email",
+    "password": "Password",
+    "forgotPassword": "Forgot password?",
+    "otherSignInOptions": "Other sign in options",
+    "continues": "Continue",
+    "chooseTheCurrency": "Choose the currency",
+    "selectYourDefaultCurrency": "Select your default currency. You can add more later",
+    "search": "Search",
+    "dontWorryItHappens": "Don’t worry! It happens. Please enter the email associated with your account",
+    "enterYourEmailAddress": "Enter you email address",
+    "reset": "Reset",
+    "enterCode": "Enter code",
+    "weveSentAOtpToYOurEmail": "We’ve sent a One-Time Password (OTP) to your email ",
+    "invalidOtpTryAgain": "Invalid OTP. Please check the code and try again"
 }
