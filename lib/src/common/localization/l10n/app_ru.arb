@@ -1,3 +1,27 @@
 {
-    "hello": "привет"
+    "welcomeBack": "С возвращением!",
+    "createAnAccount": "Создать аккаунт",
+    "signIn": "Войти",
+    "register": "Регистрация",
+    "emailAddress": "Электронная почта",
+    "emailExample": "example@gmail.com",
+    "createAPassword": "Создайте пароль",
+    "mustBeEightCharacters": "должно быть 8 символов",
+    "confirmPassword": "Подтвердите пароль",
+    "reEnterPassword": "Введите пароль снова",
+    "otherRegisterOptions": "Другие варианты регистрации",
+    "yourEmail": "Ваш e-mail",
+    "password": "Пароль",
+    "forgotPassword": "Забыли пароль?",
+    "otherSignInOptions": "Другие способы входа",
+    "continues": "Продолжить",
+    "chooseTheCurrency": "Выберите валюту",
+    "selectYourDefaultCurrency": "Выберите основную валюту. Вы сможете добавить другие позже",
+    "search": "Поиск",
+    "dontWorryItHappens": "Не беспокойтесь! Такое бывает. Введите электронную почту, связанную с вашим аккаунтом",
+    "enterYourEmailAddress": "Введите ваш адрес электронной почты",
+    "reset": "Сбросить",
+    "enterCode": "Введите код",
+    "weveSentAOtpToYOurEmail": "Мы отправили одноразовый пароль (OTP) на вашу почту ",
+    "invalidOtpTryAgain": "Неверный OTP. Проверьте код и попробуйте снова"
 }

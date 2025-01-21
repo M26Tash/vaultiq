@@ -1,3 +1,27 @@
 {
-    "hello": "selam"
+    "welcomeBack": "Tekrar hoş geldiniz!",
+    "createAnAccount": "Hesap oluştur",
+    "signIn": "Giriş yap",
+    "register": "Kaydol",
+    "emailAddress": "E-posta adresi",
+    "emailExample": "example@gmail.com",
+    "createAPassword": "Bir şifre oluşturun",
+    "mustBeEightCharacters": "8 karakter olmalı",
+    "confirmPassword": "Şifreyi onaylayın",
+    "reEnterPassword": "Şifreyi tekrar girin",
+    "otherRegisterOptions": "Diğer kayıt seçenekleri",
+    "yourEmail": "E-postanız",
+    "password": "Şifre",
+    "forgotPassword": "Şifrenizi mi unuttunuz?",
+    "otherSignInOptions": "Diğer giriş seçenekleri",
+    "continues": "Devam et",
+    "chooseTheCurrency": "Para birimini seçin",
+    "selectYourDefaultCurrency": "Varsayılan para biriminizi seçin. Daha sonra ekleyebilirsiniz",
+    "search": "Ara",
+    "dontWorryItHappens": "Endişelenmeyin! Olabilir. Lütfen hesabınızla ilişkili e-postayı girin",
+    "enterYourEmailAddress": "E-posta adresinizi girin",
+    "reset": "Sıfırla",
+    "enterCode": "Kodu girin",
+    "weveSentAOtpToYOurEmail": "E-postanıza bir Tek Kullanımlık Şifre (OTP) gönderdik ",
+    "invalidOtpTryAgain": "Geçersiz OTP. Lütfen kodu kontrol edin ve tekrar deneyin"
 }

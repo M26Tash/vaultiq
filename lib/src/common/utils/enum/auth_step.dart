@@ -1,0 +1,4 @@
+enum AuthStep {
+  signIn,
+  register,
+}

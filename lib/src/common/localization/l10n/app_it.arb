@@ -1,3 +1,27 @@
 {
-    "hello": "salve"
+    "welcomeBack": "Bentornato!",
+    "createAnAccount": "Crea un account",
+    "signIn": "Accedi",
+    "register": "Registrati",
+    "emailAddress": "Indirizzo email",
+    "emailExample": "example@gmail.com",
+    "createAPassword": "Crea una password",
+    "mustBeEightCharacters": "deve essere di 8 caratteri",
+    "confirmPassword": "Conferma password",
+    "reEnterPassword": "Reinserisci la password",
+    "otherRegisterOptions": "Altre opzioni di registrazione",
+    "yourEmail": "La tua email",
+    "password": "Password",
+    "forgotPassword": "Password dimenticata?",
+    "otherSignInOptions": "Altre opzioni di accesso",
+    "continues": "Continua",
+    "chooseTheCurrency": "Scegli la valuta",
+    "selectYourDefaultCurrency": "Seleziona la tua valuta predefinita. Puoi aggiungerne altre in seguito",
+    "search": "Cerca",
+    "dontWorryItHappens": "Non preoccuparti! Può succedere. Inserisci l'email associata al tuo account",
+    "enterYourEmailAddress": "Inserisci il tuo indirizzo email",
+    "reset": "Reimposta",
+    "enterCode": "Inserisci il codice",
+    "weveSentAOtpToYOurEmail": "Abbiamo inviato una password temporanea (OTP) alla tua email ",
+    "invalidOtpTryAgain": "OTP non valido. Controlla il codice e riprova"
 }
