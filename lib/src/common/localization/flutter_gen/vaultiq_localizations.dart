@@ -248,6 +248,102 @@ abstract class VaultiqLocalization {
   /// In en, this message translates to:
   /// **'Invalid OTP. Please check the code and try again'**
   String get invalidOtpTryAgain;
+
+  /// No description provided for @home.
+  ///
+  /// In en, this message translates to:
+  /// **'Home'**
+  String get home;
+
+  /// No description provided for @statistics.
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics'**
+  String get statistics;
+
+  /// No description provided for @wallet.
+  ///
+  /// In en, this message translates to:
+  /// **'Wallet'**
+  String get wallet;
+
+  /// No description provided for @more.
+  ///
+  /// In en, this message translates to:
+  /// **'more'**
+  String get more;
+
+  /// No description provided for @news.
+  ///
+  /// In en, this message translates to:
+  /// **'News'**
+  String get news;
+
+  /// No description provided for @keepTrackOfNewChanges.
+  ///
+  /// In en, this message translates to:
+  /// **'Keep track of new changes'**
+  String get keepTrackOfNewChanges;
+
+  /// No description provided for @income.
+  ///
+  /// In en, this message translates to:
+  /// **'Income'**
+  String get income;
+
+  /// No description provided for @recordYourIncomes.
+  ///
+  /// In en, this message translates to:
+  /// **'Record your incomes'**
+  String get recordYourIncomes;
+
+  /// No description provided for @expense.
+  ///
+  /// In en, this message translates to:
+  /// **'Expense'**
+  String get expense;
+
+  /// No description provided for @knowWhereAndWhenYouSpend.
+  ///
+  /// In en, this message translates to:
+  /// **'Know where and when you spend'**
+  String get knowWhereAndWhenYouSpend;
+
+  /// No description provided for @transfer.
+  ///
+  /// In en, this message translates to:
+  /// **'Transfer'**
+  String get transfer;
+
+  /// No description provided for @makeTransfersEasily.
+  ///
+  /// In en, this message translates to:
+  /// **'Make transfers easily'**
+  String get makeTransfersEasily;
+
+  /// No description provided for @exchangeRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Exchange rate'**
+  String get exchangeRate;
+
+  /// No description provided for @stayUpToDateEveryTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Stay up to date every time'**
+  String get stayUpToDateEveryTime;
+
+  /// No description provided for @cryptoRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Crypto rate'**
+  String get cryptoRate;
+
+  /// No description provided for @beAwareOfFutureMoneyTendance.
+  ///
+  /// In en, this message translates to:
+  /// **'Be aware of future money tendance'**
+  String get beAwareOfFutureMoneyTendance;
 }
 
 class _VaultiqLocalizationDelegate extends LocalizationsDelegate<VaultiqLocalization> {

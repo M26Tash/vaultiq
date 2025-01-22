@@ -23,5 +23,21 @@
     "reset": "Sıfırla",
     "enterCode": "Kodu girin",
     "weveSentAOtpToYOurEmail": "E-postanıza bir Tek Kullanımlık Şifre (OTP) gönderdik ",
-    "invalidOtpTryAgain": "Geçersiz OTP. Lütfen kodu kontrol edin ve tekrar deneyin"
+    "invalidOtpTryAgain": "Geçersiz OTP. Lütfen kodu kontrol edin ve tekrar deneyin",
+    "home": "Ana Sayfa",
+    "statistics": "İstatistikler",
+    "wallet": "Cüzdan",
+    "more": "Daha Fazla",
+    "news": "Haberler",
+    "keepTrackOfNewChanges": "Yeni değişiklikleri takip edin",
+    "income": "Gelir",
+    "recordYourIncomes": "Gelirlerinizi kaydedin",
+    "expense": "Gider",
+    "knowWhereAndWhenYouSpend": "Nerede ve ne zaman harcadığınızı bilin",
+    "transfer": "Transfer",
+    "makeTransfersEasily": "Kolayca transfer yapın",
+    "exchangeRate": "Döviz Kuru",
+    "stayUpToDateEveryTime": "Her zaman güncel kalın",
+    "cryptoRate": "Kripto Kuru",
+    "beAwareOfFutureMoneyTendance": "Gelecekteki para eğilimlerinin farkında olun"
 }

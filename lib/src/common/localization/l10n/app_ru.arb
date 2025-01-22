@@ -23,5 +23,21 @@
     "reset": "Сбросить",
     "enterCode": "Введите код",
     "weveSentAOtpToYOurEmail": "Мы отправили одноразовый пароль (OTP) на вашу почту ",
-    "invalidOtpTryAgain": "Неверный OTP. Проверьте код и попробуйте снова"
+    "invalidOtpTryAgain": "Неверный OTP. Проверьте код и попробуйте снова",
+    "home": "Главная",
+    "statistics": "Статистика",
+    "wallet": "Кошелек",
+    "more": "Еще",
+    "news": "Новости",
+    "keepTrackOfNewChanges": "Следите за новыми изменениями",
+    "income": "Доход",
+    "recordYourIncomes": "Записывайте свои доходы",
+    "expense": "Расходы",
+    "knowWhereAndWhenYouSpend": "Знайте, где и когда вы тратите",
+    "transfer": "Перевод",
+    "makeTransfersEasily": "Легко совершайте переводы",
+    "exchangeRate": "Курс обмена",
+    "stayUpToDateEveryTime": "Всегда оставайтесь в курсе",
+    "cryptoRate": "Курс криптовалют",
+    "beAwareOfFutureMoneyTendance": "Будьте в курсе будущих финансовых тенденций"
 }

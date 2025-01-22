@@ -80,4 +80,52 @@ class VaultiqLocalizationRu extends VaultiqLocalization {
 
   @override
   String get invalidOtpTryAgain => 'Неверный OTP. Проверьте код и попробуйте снова';
+
+  @override
+  String get home => 'Главная';
+
+  @override
+  String get statistics => 'Статистика';
+
+  @override
+  String get wallet => 'Кошелек';
+
+  @override
+  String get more => 'Еще';
+
+  @override
+  String get news => 'Новости';
+
+  @override
+  String get keepTrackOfNewChanges => 'Следите за новыми изменениями';
+
+  @override
+  String get income => 'Доход';
+
+  @override
+  String get recordYourIncomes => 'Записывайте свои доходы';
+
+  @override
+  String get expense => 'Расходы';
+
+  @override
+  String get knowWhereAndWhenYouSpend => 'Знайте, где и когда вы тратите';
+
+  @override
+  String get transfer => 'Перевод';
+
+  @override
+  String get makeTransfersEasily => 'Легко совершайте переводы';
+
+  @override
+  String get exchangeRate => 'Курс обмена';
+
+  @override
+  String get stayUpToDateEveryTime => 'Всегда оставайтесь в курсе';
+
+  @override
+  String get cryptoRate => 'Курс криптовалют';
+
+  @override
+  String get beAwareOfFutureMoneyTendance => 'Будьте в курсе будущих финансовых тенденций';
 }

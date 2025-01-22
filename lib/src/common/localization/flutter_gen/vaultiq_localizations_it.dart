@@ -80,4 +80,52 @@ class VaultiqLocalizationIt extends VaultiqLocalization {
 
   @override
   String get invalidOtpTryAgain => 'OTP non valido. Controlla il codice e riprova';
+
+  @override
+  String get home => 'Casa';
+
+  @override
+  String get statistics => 'Statistiche';
+
+  @override
+  String get wallet => 'Portafoglio';
+
+  @override
+  String get more => 'Altro';
+
+  @override
+  String get news => 'Notizie';
+
+  @override
+  String get keepTrackOfNewChanges => 'Tieni traccia delle nuove modifiche';
+
+  @override
+  String get income => 'Entrate';
+
+  @override
+  String get recordYourIncomes => 'Registra le tue entrate';
+
+  @override
+  String get expense => 'Spese';
+
+  @override
+  String get knowWhereAndWhenYouSpend => 'Scopri dove e quando spendi';
+
+  @override
+  String get transfer => 'Trasferimento';
+
+  @override
+  String get makeTransfersEasily => 'Effettua trasferimenti facilmente';
+
+  @override
+  String get exchangeRate => 'Tasso di cambio';
+
+  @override
+  String get stayUpToDateEveryTime => 'Rimani sempre aggiornato';
+
+  @override
+  String get cryptoRate => 'Tasso di criptovalute';
+
+  @override
+  String get beAwareOfFutureMoneyTendance => 'Sii consapevole delle tendenze future del denaro';
 }
