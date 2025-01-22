@@ -23,5 +23,21 @@
     "reset": "Reimposta",
     "enterCode": "Inserisci il codice",
     "weveSentAOtpToYOurEmail": "Abbiamo inviato una password temporanea (OTP) alla tua email ",
-    "invalidOtpTryAgain": "OTP non valido. Controlla il codice e riprova"
+    "invalidOtpTryAgain": "OTP non valido. Controlla il codice e riprova",
+    "home": "Casa",
+    "statistics": "Statistiche",
+    "wallet": "Portafoglio",
+    "more": "Altro",
+    "news": "Notizie",
+    "keepTrackOfNewChanges": "Tieni traccia delle nuove modifiche",
+    "income": "Entrate",
+    "recordYourIncomes": "Registra le tue entrate",
+    "expense": "Spese",
+    "knowWhereAndWhenYouSpend": "Scopri dove e quando spendi",
+    "transfer": "Trasferimento",
+    "makeTransfersEasily": "Effettua trasferimenti facilmente",
+    "exchangeRate": "Tasso di cambio",
+    "stayUpToDateEveryTime": "Rimani sempre aggiornato",
+    "cryptoRate": "Tasso di criptovalute",
+    "beAwareOfFutureMoneyTendance": "Sii consapevole delle tendenze future del denaro"
 }

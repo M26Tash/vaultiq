@@ -7,7 +7,6 @@ import 'package:vaultiq/src/features/authentication_page/cubit/auth_cubit.dart';
 class AuthGuard extends AutoRouteGuard {
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
-
     final authCubit = i.get<AuthCubit>();
     final session = Supabase.instance.client.auth.currentSession;
 
@@ -15,7 +14,7 @@ class AuthGuard extends AutoRouteGuard {
       (event) {
         if (event.currentSession != null) {
           router.replace(
-            const HomeRoute(),
+            const MainRoute(),
           );
         }
       },
@@ -23,7 +22,7 @@ class AuthGuard extends AutoRouteGuard {
 
     if (session != null) {
       router.replace(
-        const HomeRoute(),
+        const MainRoute(),
       );
     } else {
       resolver.next();

@@ -23,5 +23,21 @@
     "reset": "Reset",
     "enterCode": "Enter code",
     "weveSentAOtpToYOurEmail": "We’ve sent a One-Time Password (OTP) to your email ",
-    "invalidOtpTryAgain": "Invalid OTP. Please check the code and try again"
+    "invalidOtpTryAgain": "Invalid OTP. Please check the code and try again",
+    "home":"Home",
+    "statistics":"Statistics",
+    "wallet":"Wallet",
+    "more":"more",
+    "news":"News",
+    "keepTrackOfNewChanges":"Keep track of new changes",
+    "income":"Income",
+    "recordYourIncomes":"Record your incomes",
+    "expense":"Expense",
+    "knowWhereAndWhenYouSpend":"Know where and when you spend",
+    "transfer":"Transfer",
+    "makeTransfersEasily":"Make transfers easily",
+    "exchangeRate":"Exchange rate",
+    "stayUpToDateEveryTime":"Stay up to date every time",
+    "cryptoRate":"Crypto rate",
+    "beAwareOfFutureMoneyTendance":"Be aware of future money tendance"
 }
