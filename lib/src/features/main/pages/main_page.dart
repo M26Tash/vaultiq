@@ -7,6 +7,7 @@ import 'package:vaultiq/src/common/di/injector.dart';
 import 'package:vaultiq/src/common/localization/localizations_ext.dart';
 import 'package:vaultiq/src/common/shared_cubits/navigation_panel_cubit/navigation_panel_cubit.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
+import 'package:vaultiq/src/common/widgets/custom_app_bar/custom_app_bar.dart';
 import 'package:vaultiq/src/common/widgets/custom_navigation_panel/custom_navigation_panel.dart';
 import 'package:vaultiq/src/features/main/widgets/add_dialog_item.dart';
 import 'package:vaultiq/src/features/main/widgets/main_body_selector.dart';
@@ -64,6 +65,14 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
+  String? _appBarTitle(int pageIndex) => switch (pageIndex) {
+        0 => null,
+        1 => 'Statistics',
+        2 => 'Wallet',
+        3 => 'More',
+        _ => null,
+      };
+
   @override
   Widget build(BuildContext context) {
     return CubitScope<NavigationPanelCubit>(
@@ -73,8 +82,15 @@ class _MainPageState extends State<MainPage> {
         builder: (context, state) {
           return Scaffold(
             backgroundColor: context.theme.backgroundColor,
-            body: MainBodySelector(
-              pageController: _pageController,
+            appBar: _appBarTitle(state.navigationIndex) == null
+                ? null
+                : CustomAppBar(
+                    title: _appBarTitle(state.navigationIndex),
+                  ),
+            body: SafeArea(
+              child: MainBodySelector(
+                pageController: _pageController,
+              ),
             ),
             bottomNavigationBar: CustomNavigationPanel(
               selectedIndex: state.navigationIndex,

@@ -1,6 +1,8 @@
 //
 // ignore_for_file: avoid_catches_without_on_clauses
 
+import 'dart:developer';
+
 import 'package:rxdart/subjects.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -21,12 +23,7 @@ class AuthDataSource implements IAuthDataSource {
   AuthDataSource() {
     supabase.auth.onAuthStateChange.listen(
       (event) {
-        CoreLogger.infoLog(
-          'Sessions Update',
-          params: {
-            'status': '${event.session}',
-          },
-        );
+        log('${event.session}');
         _sessionSubject.add(event.session);
       },
     );

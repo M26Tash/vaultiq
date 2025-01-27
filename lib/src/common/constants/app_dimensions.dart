@@ -28,4 +28,6 @@ abstract final class AppDimensions {
   static const double iconSize = 30;
   static const double dialogVerticalPadding = 80;
   static const double dialogHorizontalPadding = 16;
+  static const double dragIndicatorHeight = 4;
+  static const double dragIndicatorWidth = 40;
 }

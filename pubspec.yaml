@@ -48,7 +48,7 @@ flutter:
 
 
   assets:
-    # - .env
+    - .env
     - assets/images/
     - assets/vectors/
 

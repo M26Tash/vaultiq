@@ -28,6 +28,10 @@ abstract final class AppAssets {
       '${_assetsVectors}exchange_rate_icon.svg';
   static const String cryptoRateIcon = '${_assetsVectors}crypto_rate_icon.svg';
 
+  // Icons path
+  static const String notificationIcon =
+      '${_assetsVectors}notification_icon.svg';
+
   // Folder Paths
   static const String _assetsFolder = 'assets/';
   static const String _assetsVectors = '${_assetsFolder}vectors/';

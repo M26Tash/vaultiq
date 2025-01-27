@@ -48,7 +48,7 @@ class _AppState extends State<App> {
                 ...VaultiqLocalization.localizationsDelegates,
               ],
               supportedLocales: VaultiqLocalization.supportedLocales,
-              locale: const Locale('it'),
+              locale: const Locale('en'),
               routerConfig: _appRouter.config(),
             ),
           );

@@ -40,16 +40,20 @@ final class CustomNavigationPanel extends StatelessWidget {
                   navigationItem: items[index],
                   onIndexChanged: onIndexChanged,
                 ),
-              FloatingActionButton(
-                backgroundColor: context.theme.primaryColor,
-                shape: const CircleBorder(),
-                onPressed: onAddTap,
-                child: VectorImage(
-                  width: AppDimensions.iconSize,
-                  height: AppDimensions.iconSize,
-                  svgAssetPath: AppAssets.addIcon,
-                  color: context.theme.primaryIconColor,
-                ),
+              Column(
+                children: [
+                  FloatingActionButton(
+                    backgroundColor: context.theme.primaryColor,
+                    shape: const CircleBorder(),
+                    onPressed: onAddTap,
+                    child: VectorImage(
+                      width: AppDimensions.iconSize,
+                      height: AppDimensions.iconSize,
+                      svgAssetPath: AppAssets.addIcon,
+                      color: context.theme.primaryIconColor,
+                    ),
+                  ),
+                ],
               ),
               for (var index = 2; index < 4; index++)
                 _CustomNavigationItem(
