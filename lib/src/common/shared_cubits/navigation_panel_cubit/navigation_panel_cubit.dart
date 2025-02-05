@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:vaultiq/src/common/navigation/entities/customized_route.dart';
+import 'package:vaultiq/src/common/navigation/route.dart';
 
 part 'navigation_state.dart';
 
@@ -8,6 +10,7 @@ class NavigationPanelCubit extends Cubit<NavigationPanelState> {
       : super(
           const NavigationPanelState(
             navigationIndex: 0,
+            route: CustomizedRoute(null, null),
           ),
         );
 
@@ -17,6 +20,27 @@ class NavigationPanelCubit extends Cubit<NavigationPanelState> {
     emit(
       state.copyWith(
         navigationIndex: navigationIndex,
+      ),
+    );
+  }
+
+  void navigateToIncomePage() {
+    emit(
+      state.copyWith(
+        route: const CustomizedRoute(
+          TypeRoute.navigateTo,
+          AddTransactionRoute(),
+        ),
+      ),
+    );
+
+    Future.microtask(_resetRoute);
+  }
+
+  void _resetRoute() {
+    emit(
+      state.copyWith(
+        route: const CustomizedRoute(null, null),
       ),
     );
   }

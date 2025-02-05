@@ -24,8 +24,14 @@ abstract final class AppDimensions {
   // show dialog values
   static const double leadingHeight = 50;
 
+  // divider value
+  static const double dividerHeight = 40;
+  static const double dividerWidth = 3;
+
   // other value
   static const double iconSize = 30;
   static const double dialogVerticalPadding = 80;
   static const double dialogHorizontalPadding = 16;
+  static const double dragIndicatorHeight = 4;
+  static const double dragIndicatorWidth = 40;
 }

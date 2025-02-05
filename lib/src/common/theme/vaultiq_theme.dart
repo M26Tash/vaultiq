@@ -110,6 +110,9 @@ final class VaultiqTheme extends Equatable {
   final Color primaryRedColor;
   final Color accentRedColor;
 
+  final Color transferCardBackgroundColor;
+  final Color currencySignColor;
+
   final Color transparent;
 
   final Color primaryIconColor;
@@ -145,6 +148,8 @@ final class VaultiqTheme extends Equatable {
         accentGreenColor,
         primaryRedColor,
         accentRedColor,
+        transferCardBackgroundColor,
+        currencySignColor,
         primaryIconColor,
         secondaryIconColor,
         transparent,
@@ -175,6 +180,8 @@ final class VaultiqTheme extends Equatable {
     required this.accentGreenColor,
     required this.primaryRedColor,
     required this.accentRedColor,
+    required this.transferCardBackgroundColor,
+    required this.currencySignColor,
     required this.primaryIconColor,
     required this.secondaryIconColor,
     required this.transparent,

@@ -17,6 +17,8 @@ abstract final class AppFonts {
   static const double sizeDisplayLarge = 34;
 
   static const double sizeAppBarFont = 20;
+  static const double currencySignSizeFont = 32;
+  static const double balanceSizeFont = 38;
 
   // FontWeight
   static const FontWeight weightThin = FontWeight.w100;

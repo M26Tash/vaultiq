@@ -29,6 +29,9 @@ const _ufoGreenDark = Color(0xFF2ECC71);
 const _cardinal = Color(0xFFC82333);
 const _carminePink = Color(0xFFE74C3C);
 
+const _coral = Color(0xFFF97F50);
+const _jellyBean = Color(0xFFD86045);
+
 const lightTheme = VaultiqTheme(
   isDark: false,
   backgroundColor: _white,
@@ -44,6 +47,8 @@ const lightTheme = VaultiqTheme(
   accentGreenColor: _ufoGreen,
   primaryRedColor: _rustyRed,
   accentRedColor: _coralRed,
+  transferCardBackgroundColor: _coral,
+  currencySignColor: _jellyBean,
   primaryIconColor: _darkJungleGreen,
   secondaryIconColor: _philippineGray,
   transparent: _transparent,
@@ -74,6 +79,8 @@ const darkTheme = VaultiqTheme(
   accentGreenColor: _ufoGreenDark,
   primaryRedColor: _cardinal,
   accentRedColor: _carminePink,
+  transferCardBackgroundColor: _coral,
+  currencySignColor: _jellyBean,
   primaryIconColor: _white,
   secondaryIconColor: _philippineGray,
   transparent: _transparent,

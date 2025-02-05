@@ -5,8 +5,10 @@ import 'package:vaultiq/src/common/constants/app_assets.dart';
 import 'package:vaultiq/src/common/cubit_scope/cubit_scope.dart';
 import 'package:vaultiq/src/common/di/injector.dart';
 import 'package:vaultiq/src/common/localization/localizations_ext.dart';
+import 'package:vaultiq/src/common/navigation/entities/auto_route_extension.dart';
 import 'package:vaultiq/src/common/shared_cubits/navigation_panel_cubit/navigation_panel_cubit.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
+import 'package:vaultiq/src/common/widgets/custom_app_bar/custom_app_bar.dart';
 import 'package:vaultiq/src/common/widgets/custom_navigation_panel/custom_navigation_panel.dart';
 import 'package:vaultiq/src/features/main/widgets/add_dialog_item.dart';
 import 'package:vaultiq/src/features/main/widgets/main_body_selector.dart';
@@ -39,15 +41,23 @@ class _MainPageState extends State<MainPage> {
     _pageController.dispose();
   }
 
-  void _listener(int? index) {
-    if (index != null) _pageController.jumpToPage(index);
+  void _listener(BuildContext context, NavigationPanelState state) {
+    // ignore: unnecessary_null_comparison
+    if (state.navigationIndex != null) {
+      _pageController.jumpToPage(state.navigationIndex);
+    }
+
+    if (state.route.type != null) {
+      context.navigateToRoute(state.route);
+    }
   }
 
   bool _listenWhen(
     NavigationPanelState prev,
     NavigationPanelState current,
   ) {
-    return prev.navigationIndex != current.navigationIndex;
+    return prev.navigationIndex != current.navigationIndex ||
+        prev.route.type == null && current.route.type != null;
   }
 
   Future<void> showAddDialog({
@@ -64,17 +74,33 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
+  String? _appBarTitle(int pageIndex) => switch (pageIndex) {
+        0 => null,
+        1 => 'Statistics',
+        2 => 'Wallet',
+        3 => 'More',
+        _ => null,
+      };
+
   @override
   Widget build(BuildContext context) {
     return CubitScope<NavigationPanelCubit>(
       child: BlocConsumer<NavigationPanelCubit, NavigationPanelState>(
-        listener: (context, state) => _listener(state.navigationIndex),
+        bloc: _navigationalPanelCubit,
+        listener: _listener,
         listenWhen: _listenWhen,
         builder: (context, state) {
           return Scaffold(
             backgroundColor: context.theme.backgroundColor,
-            body: MainBodySelector(
-              pageController: _pageController,
+            appBar: _appBarTitle(state.navigationIndex) == null
+                ? null
+                : CustomAppBar(
+                    title: _appBarTitle(state.navigationIndex),
+                  ),
+            body: SafeArea(
+              child: MainBodySelector(
+                pageController: _pageController,
+              ),
             ),
             bottomNavigationBar: CustomNavigationPanel(
               selectedIndex: state.navigationIndex,
@@ -89,7 +115,7 @@ class _MainPageState extends State<MainPage> {
                     subtitle: context.locale.keepTrackOfNewChanges,
                   ),
                   AddDialogItem(
-                    onTap: () {},
+                    onTap: _navigationalPanelCubit.navigateToIncomePage,
                     assetPath: AppAssets.incomeIcon,
                     title: context.locale.income,
                     subtitle: context.locale.recordYourIncomes,
