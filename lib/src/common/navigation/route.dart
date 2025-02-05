@@ -4,7 +4,7 @@ import 'package:vaultiq/src/common/navigation/guards/auth_guard.dart';
 import 'package:vaultiq/src/features/authentication_page/pages/auth_page.dart';
 import 'package:vaultiq/src/features/default_currency_page/pages/default_currency_page.dart';
 import 'package:vaultiq/src/features/forgot_password_page/pages/forgot_password_page.dart';
-
+import 'package:vaultiq/src/features/add_transaction_page/pages/add_transaction_page.dart';
 import 'package:vaultiq/src/features/main/pages/main_page.dart';
 import 'package:vaultiq/src/features/otp_page/pages/otp_page.dart';
 
@@ -28,5 +28,6 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: DefaultCurrencyRoute.page),
         AutoRoute(page: OtpRoute.page),
         AutoRoute(page: MainRoute.page),
+        AutoRoute(page: AddTransactionRoute.page),
       ];
 }

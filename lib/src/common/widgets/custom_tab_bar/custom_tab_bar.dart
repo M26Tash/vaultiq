@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:vaultiq/src/common/constants/app_dimensions.dart';
 import 'package:vaultiq/src/common/constants/app_fonts.dart';
-import 'package:vaultiq/src/common/localization/localizations_ext.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
-import 'package:vaultiq/src/common/utils/enum/auth_step.dart';
-import 'package:vaultiq/src/features/authentication_page/cubit/auth_cubit.dart';
+import 'package:vaultiq/src/common/utils/extensions/list_extension.dart';
 
-class AuthTabBar extends StatelessWidget {
-  final AuthCubit authCubit;
-  final AuthStep currentAuthStep;
-  const AuthTabBar({
-    required this.authCubit,
-    required this.currentAuthStep,
+class CustomTabBar extends StatelessWidget {
+  final Enum currentTab;
+  final List<TabItem> tabItems;
+  const CustomTabBar({
+    required this.currentTab,
+    required this.tabItems,
     super.key,
   });
 
@@ -28,45 +26,34 @@ class AuthTabBar extends StatelessWidget {
         ),
       ),
       child: Row(
-        children: [
-          _TabItem(
-            onTap: () => authCubit.swapAuthStep(AuthStep.signIn),
-            currentAuthStep: currentAuthStep,
-            authStep: AuthStep.signIn,
-            title: context.locale.signIn,
-          ),
-          const SizedBox(
-            width: AppDimensions.small,
-          ),
-          _TabItem(
-            onTap: () => authCubit.swapAuthStep(AuthStep.register),
-            currentAuthStep: currentAuthStep,
-            authStep: AuthStep.register,
-            title: context.locale.register,
-          ),
-        ],
+        children: <Widget>[
+          for (final item in tabItems)
+            _TabItem(
+              tabItem: item,
+              currentTab: currentTab,
+            ),
+        ].insertBetween(
+          const SizedBox(width: AppDimensions.small),
+        ),
       ),
     );
   }
 }
 
 class _TabItem extends StatelessWidget {
-  final VoidCallback onTap;
-  final AuthStep currentAuthStep;
-  final AuthStep authStep;
-  final String title;
+  final TabItem tabItem;
+  final Enum currentTab;
+
   const _TabItem({
-    required this.onTap,
-    required this.currentAuthStep,
-    required this.authStep,
-    required this.title,
+    required this.tabItem,
+    required this.currentTab,
   });
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: InkWell(
-        onTap: onTap,
+        onTap: tabItem.onTap,
         child: AnimatedContainer(
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
@@ -79,13 +66,13 @@ class _TabItem extends StatelessWidget {
                 AppDimensions.preLarge,
               ),
             ),
-            color: currentAuthStep == authStep
+            color: currentTab == tabItem.tab
                 ? context.theme.primaryColor
                 : context.theme.backgroundColor,
           ),
           child: Center(
             child: Text(
-              title,
+              tabItem.title,
               style: context.themeData.textTheme.headlineSmall?.copyWith(
                 fontWeight: AppFonts.weightSemiBold,
                 color: context.theme.bodyTextColor,
@@ -96,4 +83,16 @@ class _TabItem extends StatelessWidget {
       ),
     );
   }
+}
+
+final class TabItem {
+  final VoidCallback onTap;
+  final Enum tab;
+  final String title;
+
+  const TabItem({
+    required this.onTap,
+    required this.tab,
+    required this.title,
+  });
 }

@@ -24,6 +24,10 @@ class TransactionItem extends StatelessWidget {
         children: [
           CircleAvatar(
             backgroundColor: context.theme.backgroundColor,
+            child: Image.asset(
+              assetPath,
+              color: context.theme.primaryIconColor,
+            ),
           ),
           const SizedBox(width: AppDimensions.medium),
           Column(

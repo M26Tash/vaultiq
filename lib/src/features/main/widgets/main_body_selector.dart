@@ -9,10 +9,8 @@ import 'package:vaultiq/src/features/main/widgets/wallet_body/wallet_body.dart';
 
 class MainBodySelector extends StatefulWidget {
   final PageController pageController;
-  // final EdgeInsets viewInsets;
   const MainBodySelector({
     required this.pageController,
-    // required this.viewInsets,
     super.key,
   });
 

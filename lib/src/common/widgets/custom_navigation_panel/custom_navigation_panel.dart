@@ -43,6 +43,7 @@ final class CustomNavigationPanel extends StatelessWidget {
               Column(
                 children: [
                   FloatingActionButton(
+                    heroTag: 'dialog_hero',
                     backgroundColor: context.theme.primaryColor,
                     shape: const CircleBorder(),
                     onPressed: onAddTap,
