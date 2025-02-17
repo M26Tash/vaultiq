@@ -7,6 +7,7 @@ import 'package:vaultiq/src/features/default_currency_page/pages/default_currenc
 import 'package:vaultiq/src/features/forgot_password_page/pages/forgot_password_page.dart';
 import 'package:vaultiq/src/features/main/pages/main_page.dart';
 import 'package:vaultiq/src/features/otp_page/pages/otp_page.dart';
+import 'package:vaultiq/src/features/splash_page/pages/splash_page.dart';
 
 part 'route.gr.dart';
 
@@ -18,8 +19,11 @@ class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          page: AuthRoute.page,
+          page: SplashRoute.page,
           initial: true,
+        ),
+        AutoRoute(
+          page: AuthRoute.page,
           guards: [
             AuthGuard(),
           ],

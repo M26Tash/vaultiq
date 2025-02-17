@@ -39,5 +39,8 @@
     "exchangeRate": "Курс обмена",
     "stayUpToDateEveryTime": "Всегда оставайтесь в курсе",
     "cryptoRate": "Курс криптовалют",
-    "beAwareOfFutureMoneyTendance": "Будьте в курсе будущих финансовых тенденций"
+    "beAwareOfFutureMoneyTendance": "Будьте в курсе будущих финансовых тенденций",
+    "oops": "Ууупс!",
+    "somethingWentWrongOnOurEnd": "Что-то пошло не так на нашей стороне. Пожалуйста, попробуйте снова. Если проблема сохраняется, попробуйте позже.",
+    "tryAgain": "Попробовать снова"
 }

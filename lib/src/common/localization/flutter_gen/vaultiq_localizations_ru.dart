@@ -1,3 +1,5 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'vaultiq_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -128,4 +130,13 @@ class VaultiqLocalizationRu extends VaultiqLocalization {
 
   @override
   String get beAwareOfFutureMoneyTendance => 'Будьте в курсе будущих финансовых тенденций';
+
+  @override
+  String get oops => 'Ууупс!';
+
+  @override
+  String get somethingWentWrongOnOurEnd => 'Что-то пошло не так на нашей стороне. Пожалуйста, попробуйте снова. Если проблема сохраняется, попробуйте позже.';
+
+  @override
+  String get tryAgain => 'Попробовать снова';
 }

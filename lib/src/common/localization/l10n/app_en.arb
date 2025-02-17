@@ -39,5 +39,8 @@
     "exchangeRate":"Exchange rate",
     "stayUpToDateEveryTime":"Stay up to date every time",
     "cryptoRate":"Crypto rate",
-    "beAwareOfFutureMoneyTendance":"Be aware of future money tendance"
+    "beAwareOfFutureMoneyTendance":"Be aware of future money tendance",
+    "oops":"Ooops!",
+    "somethingWentWrongOnOurEnd":"Something went wrong on our end. Please try again. If the issue persists, check back later",
+    "tryAgain":"Try again"
 }

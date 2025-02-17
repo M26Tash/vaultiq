@@ -1,3 +1,5 @@
+// ignore: unused_import
+import 'package:intl/intl.dart' as intl;
 import 'vaultiq_localizations.dart';
 
 // ignore_for_file: type=lint
@@ -128,4 +130,13 @@ class VaultiqLocalizationEn extends VaultiqLocalization {
 
   @override
   String get beAwareOfFutureMoneyTendance => 'Be aware of future money tendance';
+
+  @override
+  String get oops => 'Ooops!';
+
+  @override
+  String get somethingWentWrongOnOurEnd => 'Something went wrong on our end. Please try again. If the issue persists, check back later';
+
+  @override
+  String get tryAgain => 'Try again';
 }
