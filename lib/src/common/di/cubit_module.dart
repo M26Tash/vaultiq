@@ -6,8 +6,10 @@ import 'package:vaultiq/src/features/app/cubit/app_cubit.dart';
 import 'package:vaultiq/src/features/authentication_page/cubit/auth_cubit.dart';
 import 'package:vaultiq/src/features/default_currency_page/cubit/default_currency_cubit.dart';
 import 'package:vaultiq/src/features/forgot_password_page/cubit/forgot_password_cubit.dart';
+import 'package:vaultiq/src/features/main/cubits/home_cubit/home_cubit.dart';
 import 'package:vaultiq/src/features/main/cubits/wallet_cubit/wallet_cubit.dart';
 import 'package:vaultiq/src/features/otp_page/cubit/otp_cubit.dart';
+import 'package:vaultiq/src/features/splash_page/cubit/splash_cubit.dart';
 
 void initSharedCubits() {
   i
@@ -47,5 +49,15 @@ void initCubits() {
     )
     ..registerFactory<AddTransactionCubit>(
       AddTransactionCubit.new,
+    )
+    ..registerFactory<SplashCubit>(
+      () => SplashCubit(
+        i.get(),
+      ),
+    )
+    ..registerFactory<HomeCubit>(
+      () => HomeCubit(
+        i.get(),
+      ),
     );
 }

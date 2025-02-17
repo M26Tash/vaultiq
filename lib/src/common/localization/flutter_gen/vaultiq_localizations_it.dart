@@ -130,4 +130,13 @@ class VaultiqLocalizationIt extends VaultiqLocalization {
 
   @override
   String get beAwareOfFutureMoneyTendance => 'Sii consapevole delle tendenze future del denaro';
+
+  @override
+  String get oops => 'Ooops!';
+
+  @override
+  String get somethingWentWrongOnOurEnd => 'Qualcosa è andato storto. Per favore, riprova. Se il problema persiste, riprova più tardi.';
+
+  @override
+  String get tryAgain => 'Riprova';
 }

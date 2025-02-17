@@ -39,5 +39,8 @@
     "exchangeRate": "Döviz Kuru",
     "stayUpToDateEveryTime": "Her zaman güncel kalın",
     "cryptoRate": "Kripto Kuru",
-    "beAwareOfFutureMoneyTendance": "Gelecekteki para eğilimlerinin farkında olun"
+    "beAwareOfFutureMoneyTendance": "Gelecekteki para eğilimlerinin farkında olun",
+    "oops": "Hata!",
+    "somethingWentWrongOnOurEnd": "Bir şeyler ters gitti. Lütfen tekrar deneyin. Sorun devam ederse, daha sonra tekrar deneyin.",
+    "tryAgain": "Tekrar dene"
 }

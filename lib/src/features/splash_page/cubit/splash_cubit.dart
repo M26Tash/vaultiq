@@ -11,9 +11,9 @@ class SplashCubit extends Cubit<SplashState> {
   final ExchangeRateInteractor _exchangeRateInteractor;
   SplashCubit(this._exchangeRateInteractor)
       : super(
-          SplashState(
-            route: const CustomizedRoute(null, null),
-            rates: const ExchangeModel().empty(),
+          const SplashState(
+            route: CustomizedRoute(null, null),
+            rates: ExchangeModel(),
           ),
         ) {
     _subscribeAll();

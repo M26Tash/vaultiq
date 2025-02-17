@@ -344,6 +344,24 @@ abstract class VaultiqLocalization {
   /// In en, this message translates to:
   /// **'Be aware of future money tendance'**
   String get beAwareOfFutureMoneyTendance;
+
+  /// No description provided for @oops.
+  ///
+  /// In en, this message translates to:
+  /// **'Ooops!'**
+  String get oops;
+
+  /// No description provided for @somethingWentWrongOnOurEnd.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong on our end. Please try again. If the issue persists, check back later'**
+  String get somethingWentWrongOnOurEnd;
+
+  /// No description provided for @tryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get tryAgain;
 }
 
 class _VaultiqLocalizationDelegate extends LocalizationsDelegate<VaultiqLocalization> {

@@ -39,7 +39,15 @@ final class ExchangeModel extends DomainObject {
     );
   }
 
-  ExchangeModel empty() {
-    return const ExchangeModel();
+  ExchangeModel failed() {
+    return const ExchangeModel(
+      result: 'failed',
+    );
+  }
+  
+  ExchangeModel cleared() {
+    return const ExchangeModel(
+      result: 'cleared',
+    );
   }
 }

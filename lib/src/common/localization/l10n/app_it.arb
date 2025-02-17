@@ -39,5 +39,8 @@
     "exchangeRate": "Tasso di cambio",
     "stayUpToDateEveryTime": "Rimani sempre aggiornato",
     "cryptoRate": "Tasso di criptovalute",
-    "beAwareOfFutureMoneyTendance": "Sii consapevole delle tendenze future del denaro"
+    "beAwareOfFutureMoneyTendance": "Sii consapevole delle tendenze future del denaro",
+    "oops": "Ooops!",
+    "somethingWentWrongOnOurEnd": "Qualcosa è andato storto. Per favore, riprova. Se il problema persiste, riprova più tardi.",
+    "tryAgain": "Riprova"
 }

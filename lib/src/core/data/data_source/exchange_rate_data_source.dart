@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:rxdart/subjects.dart';
 import 'package:vaultiq/src/core/data/data_source/interfaces/i_exchange_rate_data_source.dart';
@@ -24,55 +25,48 @@ class ExchangeRateDataSource implements IExchangeRateDataSource {
       CoreLogger.warningLog('Serving cached exchange rate');
     }
 
-    // try {
-    //   final url = Uri(
-    //     scheme: ServiceCredential.scheme,
-    //     host: ServiceCredential.host,
-    //     path: ServiceCredential.path,
-    //   );
+    final data = await rootBundle.loadString('assets/secrets.json');
+    final Map<String, dynamic> jsonResult = jsonDecode(data);
 
-    //   final response = await http.get(url);
+    try {
+      final url = Uri.parse(jsonResult['API_URL']);
 
-    //   if (response.statusCode == 200) {
-    //     final Map<String, dynamic> responseMap = jsonDecode(response.body);
+      final response = await http.get(url);
 
-    //     final exchangeRate = ExchangeMapper().fromJson(responseMap);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> responseMap = jsonDecode(response.body);
 
-    //     _cachedExchangeRate = exchangeRate;
+        final exchangeRate = ExchangeMapper().fromJson(responseMap);
 
-    //     _exchangeRateSubject.add(exchangeRate);
+        _cachedExchangeRate = exchangeRate;
 
-    //     CoreLogger.warningLog('Exchange Rate Initialized');
-    //   } else {
-    //     CoreLogger.errorLog(
-    //       'getExchangeRate()',
-    //       params: {
-    //         'HTTP Error': 'Status code: ${response.statusCode}',
-    //       },
-    //     );
-    //     _exchangeRateSubject.add(
-    //       const ExchangeModel(
-    //         result: 'fail',
-    //         timeLastUpdateUtc: 'timeLastUpdateUtc',
-    //         timeNextUpdateUtc: 'timeNextUpdateUtc',
-    //         baseCurrencyCode: 'baseCurrencyCode',
-    //         exchangeRates: [],
-    //       ),
-    //     );
-    //   }
-    // } on HttpException catch (e) {
-    //   CoreLogger.errorLog(
-    //     'getExchangeRate()',
-    //     params: {
-    //       'Caught error': e.message,
-    //     },
-    //   );
-    // }
+        _exchangeRateSubject.add(exchangeRate);
+
+        CoreLogger.warningLog('Exchange Rate Initialized');
+      } else {
+        CoreLogger.errorLog(
+          'getExchangeRate()',
+          params: {
+            'HTTP Error': 'Status code: ${response.statusCode}',
+          },
+        );
+        _exchangeRateSubject.add(
+          const ExchangeModel().failed(),
+        );
+      }
+    } on HttpException catch (e) {
+      CoreLogger.errorLog(
+        'getExchangeRate()',
+        params: {
+          'Caught error': e.message,
+        },
+      );
+    }
   }
 
   @override
   void clearExchangeRate() {
-    _cachedExchangeRate = const ExchangeModel(result: 'cleared');
-    _exchangeRateSubject.add(const ExchangeModel(result: 'cleared'));
+    _cachedExchangeRate = const ExchangeModel().cleared();
+    _exchangeRateSubject.add(const ExchangeModel().cleared());
   }
 }
