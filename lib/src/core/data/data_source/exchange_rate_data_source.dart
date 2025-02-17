@@ -5,7 +5,6 @@ import 'package:http/http.dart' as http;
 import 'package:rxdart/subjects.dart';
 import 'package:vaultiq/src/core/data/data_source/interfaces/i_exchange_rate_data_source.dart';
 import 'package:vaultiq/src/core/data/mappers/exchange_mapper/exchange_mapper.dart';
-import 'package:vaultiq/src/core/data/utils/credential/service_credential.dart';
 import 'package:vaultiq/src/core/domain/entities/exchange_model/exchange_model.dart';
 import 'package:vaultiq/src/core/domain/utils/core_logger.dart';
 

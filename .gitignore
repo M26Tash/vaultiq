@@ -30,7 +30,6 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-lib/src/core/data/utils/credential/service.credential.dart
 
 # Symbolication related
 app.*.symbols
@@ -42,6 +41,9 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Ignore the credential directory
+lib/src/core/data/utils/service_credential.dart
 
 # .env file
 .env
