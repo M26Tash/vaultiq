@@ -50,10 +50,10 @@ flutter:
   uses-material-design: true
 
   assets:
-    - .env
+    # - .env
+    - assets/secrets.json
     - assets/images/
     - assets/vectors/
-    - assets/secrets.json
 
   fonts:
     - family: Inter
