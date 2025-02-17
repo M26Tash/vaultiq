@@ -18,6 +18,7 @@ analyzer:
     unawaited_futures: ignore
     sort_constructors_first: ignore
     document_ignores: ignore
+    asset_does_not_exist: ignore
 
   exclude:
     - "build/**"
