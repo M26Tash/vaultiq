@@ -30,6 +30,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+lib/src/core/data/utils/credential/service.credential.dart
 
 # Symbolication related
 app.*.symbols
