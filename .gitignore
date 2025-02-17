@@ -42,8 +42,8 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# Ignore the credential directory
-lib/src/core/data/utils/service_credential.dart
+# Ignore the secrets
+assets/secrets.json
 
 # .env file
 .env
