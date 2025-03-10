@@ -60,15 +60,16 @@ class StatisticsScrollableSheet extends StatelessWidget {
               height: AppDimensions.medium,
             ),
           ),
-          for (int i = 0; i < 2; i++)
-            const SliverToBoxAdapter(
-              child: TransactionItem(
-                assetPath: AppAssets.chatGptIcon,
-                title: 'ChatGPT Subscription',
-                date: '27.01.2025 17:20',
-                amount: '1,070.00',
-              ),
-            ),
+          // for (int i = 0; i < 2; i++)
+          //   const SliverToBoxAdapter(
+          //     child: TransactionItem(
+          //       assetPath: AppAssets.chatGptIcon,
+                
+          //       title: 'ChatGPT Subscription',
+          //       date: '27.01.2025 17:20',
+          //       amount: 1070,
+          //     ),
+          //   ),
         ],
       ),
     );

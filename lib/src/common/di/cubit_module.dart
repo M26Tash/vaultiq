@@ -45,10 +45,14 @@ void initCubits() {
       OtpCubit.new,
     )
     ..registerFactory<WalletCubit>(
-      WalletCubit.new,
+      () => WalletCubit(
+        i.get(),
+      ),
     )
     ..registerFactory<AddTransactionCubit>(
-      AddTransactionCubit.new,
+      () => AddTransactionCubit(
+        i.get(),
+      ),
     )
     ..registerFactory<SplashCubit>(
       () => SplashCubit(
@@ -57,6 +61,7 @@ void initCubits() {
     )
     ..registerFactory<HomeCubit>(
       () => HomeCubit(
+        i.get(),
         i.get(),
       ),
     );

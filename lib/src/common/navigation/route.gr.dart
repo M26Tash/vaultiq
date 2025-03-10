@@ -12,18 +12,45 @@ part of 'route.dart';
 
 /// generated route for
 /// [AddTransactionPage]
-class AddTransactionRoute extends PageRouteInfo<void> {
-  const AddTransactionRoute({List<PageRouteInfo>? children})
-    : super(AddTransactionRoute.name, initialChildren: children);
+class AddTransactionRoute extends PageRouteInfo<AddTransactionRouteArgs> {
+  AddTransactionRoute({
+    required TransactionType transactionType,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+         AddTransactionRoute.name,
+         args: AddTransactionRouteArgs(
+           transactionType: transactionType,
+           key: key,
+         ),
+         initialChildren: children,
+       );
 
   static const String name = 'AddTransactionRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return const AddTransactionPage();
+      final args = data.argsAs<AddTransactionRouteArgs>();
+      return AddTransactionPage(
+        transactionType: args.transactionType,
+        key: args.key,
+      );
     },
   );
+}
+
+class AddTransactionRouteArgs {
+  const AddTransactionRouteArgs({required this.transactionType, this.key});
+
+  final TransactionType transactionType;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'AddTransactionRouteArgs{transactionType: $transactionType, key: $key}';
+  }
 }
 
 /// generated route for

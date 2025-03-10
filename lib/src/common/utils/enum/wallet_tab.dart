@@ -1,4 +1,0 @@
-enum WalletTab {
-  card,
-  purses,
-}
