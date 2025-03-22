@@ -6,7 +6,7 @@ class AddTransactionState extends Equatable {
   final List<WalletModel?>? wallets;
   final WalletModel? selectedNormalWallet;
   final WalletModel? selectedToWallet;
-
+  final DateTime? selectedDateTime;
   @override
   List<Object?> get props => [
         route,
@@ -14,6 +14,7 @@ class AddTransactionState extends Equatable {
         wallets,
         selectedNormalWallet,
         selectedToWallet,
+        selectedDateTime,
       ];
 
   const AddTransactionState({
@@ -22,6 +23,7 @@ class AddTransactionState extends Equatable {
     required this.wallets,
     required this.selectedNormalWallet,
     required this.selectedToWallet,
+    required this.selectedDateTime,
   });
 
   AddTransactionState copyWith({
@@ -31,6 +33,7 @@ class AddTransactionState extends Equatable {
     WalletModel? selectedNormalWallet,
     WalletModel? selectedFromWallet,
     WalletModel? selectedToWallet,
+    DateTime? selectedDateTime,
   }) {
     return AddTransactionState(
       route: route ?? this.route,
@@ -38,6 +41,7 @@ class AddTransactionState extends Equatable {
       wallets: wallets ?? this.wallets,
       selectedNormalWallet: selectedNormalWallet ?? this.selectedNormalWallet,
       selectedToWallet: selectedToWallet ?? this.selectedToWallet,
+      selectedDateTime: selectedDateTime ?? this.selectedDateTime,
     );
   }
 }

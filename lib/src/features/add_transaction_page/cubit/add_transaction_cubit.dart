@@ -23,6 +23,7 @@ class AddTransactionCubit extends Cubit<AddTransactionState> {
             wallets: null,
             selectedNormalWallet: null,
             selectedToWallet: null,
+            selectedDateTime: null,
           ),
         ) {
     _subscribeAll();
@@ -65,6 +66,14 @@ class AddTransactionCubit extends Cubit<AddTransactionState> {
     emit(
       state.copyWith(
         selectedToWallet: wallet,
+      ),
+    );
+  }
+
+  void selectDate(DateTime? date) {
+    emit(
+      state.copyWith(
+        selectedDateTime: date,
       ),
     );
   }

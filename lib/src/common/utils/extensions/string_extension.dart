@@ -14,4 +14,13 @@ extension StringExtension on String {
 
     return formattedDate;
   }
+
+  String getRawValue() {
+    return replaceAll(RegExp(r'[^\d.-]'), '');
+  }
+
+  String capitalize() {
+    if (isEmpty) return this;
+    return this[0].toUpperCase() + substring(1).toLowerCase();
+  }
 }

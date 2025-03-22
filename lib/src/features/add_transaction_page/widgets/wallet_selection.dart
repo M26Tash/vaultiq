@@ -36,7 +36,7 @@ class WalletSelection extends StatelessWidget {
         if (walletSelectionType == WalletSelectionType.normal) {
           cubit.selectNormalWallet(wallet);
         }
-       
+
         if (walletSelectionType == WalletSelectionType.to) {
           cubit.selectToWallet(wallet);
         }

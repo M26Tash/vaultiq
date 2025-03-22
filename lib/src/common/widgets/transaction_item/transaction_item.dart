@@ -2,22 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:vaultiq/src/common/constants/app_dimensions.dart';
 import 'package:vaultiq/src/common/constants/app_fonts.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
+import 'package:vaultiq/src/common/utils/enum/transaction_type.dart';
 import 'package:vaultiq/src/common/utils/extensions/string_extension.dart';
 import 'package:vaultiq/src/core/domain/entities/transaction_model/transaction_model.dart';
-import 'package:vaultiq/src/common/utils/enum/transaction_type.dart';
 
 class TransactionItem extends StatelessWidget {
   final TransactionModel transactionModel;
   final String assetPath;
-  // final String title;
-  // final String date;
-  // final double amount;
   const TransactionItem({
     required this.transactionModel,
     required this.assetPath,
-    // required this.title,
-    // required this.date,
-    // required this.amount,
     super.key,
   });
 
@@ -55,28 +49,6 @@ class TransactionItem extends StatelessWidget {
             ],
           ),
           const Spacer(),
-          // Column(
-          //   crossAxisAlignment: CrossAxisAlignment.end,
-          //   children: [
-          //     Text(
-          //       '${transactionModel.transactionType == TransactionType.expense ? '-' : ''}\$${transactionModel.defaultAmount}',
-          //       style: context.themeData.textTheme.headlineSmall?.copyWith(
-          //         color: transactionModel.transactionType ==
-          //                 TransactionType.expense
-          //             ? context.theme.primaryRedColor
-          //             : context.theme.primaryGreenColor,
-          //         fontWeight: AppFonts.weightBold,
-          //       ),
-          //     ),
-          //     Text(
-          //       'Completed',
-          //       style: context.themeData.textTheme.headlineSmall?.copyWith(
-          //         color: context.theme.hintTextColor,
-          //         fontWeight: AppFonts.weightRegular,
-          //       ),
-          //     ),
-          //   ],
-          // ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [

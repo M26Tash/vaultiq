@@ -65,6 +65,7 @@ class AddTransactionPage extends StatelessWidget {
               selectedToWallet: state.selectedToWallet,
               currency: state.currency,
               cubit: cubit,
+              selectedDateTime: state.selectedDateTime,
             ),
           );
         },

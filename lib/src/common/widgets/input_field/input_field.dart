@@ -12,6 +12,7 @@ final class InputField extends StatelessWidget {
   final TextEditingController? controller;
   final String? fieldTitle;
   final VoidCallback? onTap;
+  final VoidCallback? onEditingComplete;
   final FocusNode? focusNode;
   final bool? readOnly;
   final TextCapitalization textCapitalization;
@@ -22,6 +23,7 @@ final class InputField extends StatelessWidget {
   final bool enableInteractiveSelection;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
+  final TextStyle? hintStyle;
 
   const InputField({
     this.hintText,
@@ -32,6 +34,7 @@ final class InputField extends StatelessWidget {
     this.controller,
     this.inputDecoration,
     this.onTap,
+    this.onEditingComplete,
     this.readOnly,
     this.fieldTitle,
     this.formatters,
@@ -41,6 +44,7 @@ final class InputField extends StatelessWidget {
     this.enableInteractiveSelection = true,
     this.prefixIcon,
     this.suffixIcon,
+    this.hintStyle,
     super.key,
   });
 
@@ -69,13 +73,14 @@ final class InputField extends StatelessWidget {
             autovalidateMode: AutovalidateMode.disabled,
             initialValue: initialValue,
             onTap: onTap,
+            onEditingComplete: onEditingComplete,
             readOnly: readOnly ?? false,
             keyboardType: keyboardType,
             inputFormatters: formatters,
             textCapitalization: textCapitalization,
             style: themePath.headlineMedium?.copyWith(
               color: colorPath.subTextColor,
-              fontWeight: AppFonts.weightRegular,
+              fontWeight: AppFonts.weightMedium,
             ),
             controller: controller,
             validator: validator,
@@ -133,23 +138,14 @@ final class InputField extends StatelessWidget {
                     fontWeight: AppFonts.weightMedium,
                   ),
                   hintText: hintText,
-                  hintStyle: themePath.headlineMedium?.copyWith(
-                    fontWeight: AppFonts.weightRegular,
-                    color: context.theme.hintTextColor,
-                    height: AppFonts.sizeFactorLarge,
-                  ),
-                  prefixIcon: prefixIcon != null
-                      ? Padding(
-                          padding: const EdgeInsets.all(AppDimensions.preLarge),
-                          child: prefixIcon,
-                        )
-                      : null,
-                  suffixIcon: suffixIcon != null
-                      ? Padding(
-                          padding: const EdgeInsets.all(AppDimensions.preLarge),
-                          child: suffixIcon,
-                        )
-                      : null,
+                  hintStyle: hintStyle ??
+                      themePath.headlineMedium?.copyWith(
+                        fontWeight: AppFonts.weightRegular,
+                        color: context.theme.hintTextColor,
+                        height: AppFonts.sizeFactorLarge,
+                      ),
+                  prefixIcon: prefixIcon,
+                  suffixIcon: suffixIcon,
                 ),
             onChanged: onChanged,
           ),

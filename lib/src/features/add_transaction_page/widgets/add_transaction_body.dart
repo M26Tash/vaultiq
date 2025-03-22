@@ -4,17 +4,22 @@ import 'package:drop_down_list/drop_down_list.dart';
 import 'package:drop_down_list/model/selected_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:sealed_currencies/sealed_currencies.dart';
 import 'package:vaultiq/src/common/constants/app_dimensions.dart';
 import 'package:vaultiq/src/common/constants/app_fonts.dart';
 import 'package:vaultiq/src/common/localization/localizations_ext.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
 import 'package:vaultiq/src/common/utils/enum/transaction_type.dart';
 import 'package:vaultiq/src/common/utils/enum/wallet_selection_type.dart';
+import 'package:vaultiq/src/common/utils/extensions/context_extension.dart';
 import 'package:vaultiq/src/common/utils/extensions/currency_input_formatter.dart';
 import 'package:vaultiq/src/common/utils/extensions/list_extension.dart';
+import 'package:vaultiq/src/common/utils/extensions/string_extension.dart';
+import 'package:vaultiq/src/common/utils/supported_currency/supported_currency.dart';
 import 'package:vaultiq/src/common/widgets/custom_button/custom_button.dart';
 import 'package:vaultiq/src/common/widgets/input_field/input_field.dart';
 import 'package:vaultiq/src/common/widgets/support_methods/support_methods.dart';
+import 'package:vaultiq/src/core/domain/entities/transaction_model/transaction_model.dart';
 import 'package:vaultiq/src/core/domain/entities/wallet_model/wallet_model.dart';
 import 'package:vaultiq/src/features/add_transaction_page/cubit/add_transaction_cubit.dart';
 import 'package:vaultiq/src/features/add_transaction_page/widgets/wallet_selection.dart';
@@ -26,6 +31,7 @@ class AddTransactionBody extends StatefulWidget {
   final WalletModel? selectedToWallet;
   final AddTransactionCubit cubit;
   final String currency;
+  final DateTime? selectedDateTime;
   const AddTransactionBody({
     required this.wallets,
     required this.transactionType,
@@ -33,6 +39,7 @@ class AddTransactionBody extends StatefulWidget {
     required this.selectedNormalWallet,
     required this.selectedToWallet,
     required this.cubit,
+    required this.selectedDateTime,
     super.key,
   });
 
@@ -43,7 +50,12 @@ class AddTransactionBody extends StatefulWidget {
 class _AddTransactionBodyState extends State<AddTransactionBody> {
   late final TextEditingController _amountController;
   late final TextEditingController _titleController;
-  late final TextEditingController _descriptionController;
+
+  late final GlobalKey<FormState> _titleKey;
+  late final GlobalKey<FormState> _amountKey;
+  late final GlobalKey<FormState> _dateKey;
+
+  final supportedCurrencyList = <SelectedListItem<String>>[];
 
   @override
   void initState() {
@@ -51,7 +63,30 @@ class _AddTransactionBodyState extends State<AddTransactionBody> {
 
     _amountController = TextEditingController();
     _titleController = TextEditingController();
-    _descriptionController = TextEditingController();
+
+    _titleKey = GlobalKey<FormState>();
+    _amountKey = GlobalKey<FormState>();
+    _dateKey = GlobalKey<FormState>();
+
+    _fetchSupportedCurrencies();
+  }
+
+  void _fetchSupportedCurrencies() {
+    for (final currency in SupportedCurrency.currencies.toList()) {
+      final currencyName = (FiatCurrency.maybeFromCode(currency)
+                  ?.namesNative
+                  .first
+                  .toLowerCase() ??
+              '')
+          .capitalize();
+      if (currencyName != '') {
+        supportedCurrencyList.add(
+          SelectedListItem(
+            data: '$currency - $currencyName',
+          ),
+        );
+      }
+    }
   }
 
   @override
@@ -60,7 +95,6 @@ class _AddTransactionBodyState extends State<AddTransactionBody> {
 
     _amountController.dispose();
     _titleController.dispose();
-    _descriptionController.dispose();
   }
 
   Future<void> showCurrencies() async {
@@ -86,11 +120,7 @@ class _AddTransactionBodyState extends State<AddTransactionBody> {
           color: context.theme.secondaryAccentColor,
         ),
         searchHintText: r'$ - United States Dollar',
-        data: <SelectedListItem<String>>[
-          SelectedListItem<String>(data: 'Tokyo'),
-          SelectedListItem<String>(data: 'New York'),
-          SelectedListItem<String>(data: 'London'),
-        ],
+        data: supportedCurrencyList,
         onSelected: (selectedItems) {
           final list = <String>[];
           for (final item in selectedItems) {
@@ -157,7 +187,7 @@ class _AddTransactionBodyState extends State<AddTransactionBody> {
     );
 
     if (date != null) {
-      // TODO(dev): add function
+      widget.cubit.selectDate(date);
     }
   }
 
@@ -181,29 +211,108 @@ class _AddTransactionBodyState extends State<AddTransactionBody> {
       padding: const EdgeInsets.all(AppDimensions.large),
       children: <Widget>[
         InputField(
+          formKey: _titleKey,
+          controller: _titleController,
+          hintText: 'Title',
+          validator: (value) {
+            if (value!.isEmpty) {
+              return 'Title can not be empty';
+            }
+            return null;
+          },
+        ),
+        InputField(
+          formKey: _amountKey,
           controller: _amountController,
           hintText: r'$ 100,302.32',
           formatters: [
             CurrencyInputFormatter(),
           ],
           keyboardType: TextInputType.number,
+          validator: (value) {
+            if (value == null || value.trim().isEmpty) {
+              return 'Amount cannot be empty';
+            }
+
+            final rawValue = value.getRawValue();
+
+            if (rawValue.isEmpty) {
+              return 'Amount cannot be empty';
+            }
+
+            final doubleAmount = double.tryParse(rawValue) ?? -1;
+
+            if (doubleAmount <= 0) {
+              return 'Amount must be greater than zero';
+            }
+
+            return null;
+          },
         ),
         InputField(
           hintText: r'$ - United States Dollar',
           onTap: showCurrencies,
         ),
         InputField(
-          hintText: DateFormat('dd - MM yyyy, hh:mm').format(
-            DateTime.now(),
+          formKey: _dateKey,
+          hintText: widget.selectedDateTime != null
+              ? DateFormat('dd - MM yyyy, hh:mm')
+                  .format(widget.selectedDateTime!)
+              : 'Select Date',
+          hintStyle: context.themeData.textTheme.headlineMedium?.copyWith(
+            color: context.theme.subTextColor,
+            fontWeight: AppFonts.weightMedium,
+          ),
+          suffixIcon: TextButton(
+            onPressed: () => widget.cubit.selectDate(
+              DateTime.now(),
+            ),
+            child: Text(
+              'now',
+              style: context.themeData.textTheme.headlineSmall?.copyWith(
+                color: context.theme.primaryColor,
+                fontWeight: AppFonts.weightMedium,
+              ),
+            ),
           ),
           onTap: () => _showDatePicker(context),
+          validator: (p0) {
+            if (widget.selectedDateTime == null) {
+              return 'Please select date time';
+            }
+            return null;
+          },
         ),
         if (widget.transactionType != TransactionType.transfer)
           InputField(
             hintText: 'Category',
             onTap: () {},
           ),
-        _SelectWallet(widget: widget),
+        Text(
+          'Select Wallet',
+          style: context.themeData.textTheme.headlineMedium?.copyWith(
+            color: context.theme.bodyTextColor,
+          ),
+        ),
+        GridView.builder(
+          shrinkWrap: true,
+          itemCount: widget.wallets.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: AppDimensions.large,
+            mainAxisSpacing: AppDimensions.large,
+            childAspectRatio: 1.2,
+          ),
+          itemBuilder: (context, index) {
+            return WalletSelection(
+              cubit: widget.cubit,
+              wallets: widget.wallets,
+              wallet: widget.wallets[index]!,
+              selectedWallet: widget.selectedNormalWallet,
+              walletSelectionType: WalletSelectionType.normal,
+            );
+          },
+        ),
         if (widget.transactionType == TransactionType.transfer)
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -226,7 +335,6 @@ class _AddTransactionBodyState extends State<AddTransactionBody> {
                 ),
                 itemBuilder: (context, index) {
                   return WalletSelection(
-                    key: const Key('From'),
                     cubit: widget.cubit,
                     wallets: widget.wallets,
                     wallet: widget.wallets[index]!,
@@ -237,25 +345,42 @@ class _AddTransactionBodyState extends State<AddTransactionBody> {
               ),
             ],
           ),
-        InputField(
-          hintText: 'Description',
-          onTap: () {},
-        ),
         CustomButton(
           buttonText: 'Add',
           onTap: () {
-            // widget.cubit.addTransaction(
-            //   TransactionModel(
-            //     walletId: widget.selectedNormalWallet!.id,
-            //     toWalletId: widget.selectedToWallet!.id,
-            //     createdAt: '${DateTime.now().toUtc()}',
-            //     transactionTitle: _titleController.text.trim(),
-            //     transactionType: widget.transactionType,
-            //     defaultAmount: double.parse(_amountController.text.trim()),
-            //     defaultCurrency: 'TRY',
-            //     amountInUsd: 2,
-            //   ),
-            // );
+            final titleValidate = _titleKey.currentState!.validate();
+            final amountValidate = _amountKey.currentState!.validate();
+            final dateValidate = _dateKey.currentState!.validate();
+
+            final rawAmount = _amountController.text.getRawValue();
+            final doubleAmount = double.tryParse(rawAmount);
+            final selectedDateTimeUtc = widget.selectedDateTime?.toUtc();
+
+            if (titleValidate &&
+                amountValidate &&
+                dateValidate &&
+                selectedDateTimeUtc != null &&
+                widget.selectedNormalWallet != null) {
+              widget.cubit.addTransaction(
+                TransactionModel(
+                  walletId: widget.selectedNormalWallet!.id,
+                  createdAt: '$selectedDateTimeUtc',
+                  transactionType: widget.transactionType,
+                  transactionTitle: _titleController.text.trim(),
+                  defaultCurrency: 'TRY',
+                  defaultAmount: doubleAmount!,
+                  amountInUsd: 2,
+                  toWalletId: widget.selectedToWallet?.id,
+                ),
+              );
+            }
+
+            if (widget.selectedNormalWallet == null) {
+              context.showErrorSnackBar(
+                // ignore: lines_longer_than_80_chars
+                'Please select wallet from which you would like to record transaction',
+              );
+            }
           },
         ),
       ].insertBetween(
@@ -263,50 +388,6 @@ class _AddTransactionBodyState extends State<AddTransactionBody> {
           height: AppDimensions.large,
         ),
       ),
-    );
-  }
-}
-
-class _SelectWallet extends StatelessWidget {
-  const _SelectWallet({
-    required this.widget,
-  });
-
-  final AddTransactionBody widget;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Select Wallet',
-          style: context.themeData.textTheme.headlineMedium?.copyWith(
-            color: context.theme.bodyTextColor,
-          ),
-        ),
-        const SizedBox(height: AppDimensions.medium),
-        GridView.builder(
-          shrinkWrap: true,
-          itemCount: widget.wallets.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: AppDimensions.large,
-            mainAxisSpacing: AppDimensions.large,
-            childAspectRatio: 1.2,
-          ),
-          itemBuilder: (context, index) {
-            return WalletSelection(
-              cubit: widget.cubit,
-              wallets: widget.wallets,
-              wallet: widget.wallets[index]!,
-              selectedWallet: widget.selectedNormalWallet,
-              walletSelectionType: WalletSelectionType.normal,
-            );
-          },
-        ),
-      ],
     );
   }
 }
