@@ -47,6 +47,7 @@ abstract final class AppAssets {
   static const String dotIcon = '${_assetsVectors}dot_icon.svg';
   static const String eyeIcon = '${_assetsVectors}eye_icon.svg';
   static const String eyeOffIcon = '${_assetsVectors}eye_off_icon.svg';
+  static const String sendIcon = '${_assetsVectors}send_icon.svg';
 
   // Cards design path
   static const String turquoiseCard = '${_assetsImages}turquoise_card.png';

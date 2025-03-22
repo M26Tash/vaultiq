@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:vaultiq/src/common/navigation/guards/auth_guard.dart';
+import 'package:vaultiq/src/common/utils/enum/transaction_type.dart';
 import 'package:vaultiq/src/features/add_transaction_page/pages/add_transaction_page.dart';
 import 'package:vaultiq/src/features/authentication_page/pages/auth_page.dart';
 import 'package:vaultiq/src/features/default_currency_page/pages/default_currency_page.dart';
@@ -14,7 +15,7 @@ part 'route.gr.dart';
 @AutoRouterConfig()
 class AppRouter extends RootStackRouter {
   @override
-  RouteType get defaultRouteType => const RouteType.material();
+  RouteType get defaultRouteType => const RouteType.cupertino();
 
   @override
   List<AutoRoute> get routes => [

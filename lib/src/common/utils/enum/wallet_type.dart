@@ -1,0 +1,4 @@
+enum WalletType {
+  card,
+  wallet,
+}

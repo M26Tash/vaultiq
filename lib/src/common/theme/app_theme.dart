@@ -120,7 +120,7 @@ ThemeData generateThemeData(VaultiqTheme theme) {
       ),
       headlineLarge: TextStyle(
         fontWeight: AppFonts.weightRegular,
-        fontSize: AppFonts.sizeDisplayMedium,
+        fontSize: AppFonts.sizeHeadlineLarge,
         letterSpacing: AppFonts.letterSpacing,
       ),
       headlineMedium: TextStyle(

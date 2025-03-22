@@ -1,0 +1,4 @@
+enum WalletSelectionType {
+  to,
+  normal,
+}

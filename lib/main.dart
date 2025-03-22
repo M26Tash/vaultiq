@@ -1,4 +1,6 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:vaultiq/src/common/di/injector.dart';
@@ -6,6 +8,10 @@ import 'package:vaultiq/src/features/app/pages/app.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  if (!kReleaseMode) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+  }
 
   await dotenv.load();
   final supabaseUrl = dotenv.env['SUPABASE_URL'];

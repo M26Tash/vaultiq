@@ -8,6 +8,7 @@ import 'package:vaultiq/src/common/localization/localizations_ext.dart';
 import 'package:vaultiq/src/common/navigation/entities/auto_route_extension.dart';
 import 'package:vaultiq/src/common/shared_cubits/navigation_panel_cubit/navigation_panel_cubit.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
+import 'package:vaultiq/src/common/utils/enum/transaction_type.dart';
 import 'package:vaultiq/src/common/widgets/custom_app_bar/custom_app_bar.dart';
 import 'package:vaultiq/src/common/widgets/custom_navigation_panel/custom_navigation_panel.dart';
 import 'package:vaultiq/src/features/main/widgets/add_dialog_item.dart';
@@ -115,19 +116,22 @@ class _MainPageState extends State<MainPage> {
                     subtitle: context.locale.keepTrackOfNewChanges,
                   ),
                   AddDialogItem(
-                    onTap: _navigationalPanelCubit.navigateToIncomePage,
+                    onTap: () => _navigationalPanelCubit
+                        .navigateToAddTransactionPage(TransactionType.income),
                     assetPath: AppAssets.incomeIcon,
                     title: context.locale.income,
                     subtitle: context.locale.recordYourIncomes,
                   ),
                   AddDialogItem(
-                    onTap: () {},
+                    onTap: () => _navigationalPanelCubit
+                        .navigateToAddTransactionPage(TransactionType.expense),
                     assetPath: AppAssets.expenseIcon,
                     title: context.locale.expense,
                     subtitle: context.locale.knowWhereAndWhenYouSpend,
                   ),
                   AddDialogItem(
-                    onTap: () {},
+                    onTap: () => _navigationalPanelCubit
+                        .navigateToAddTransactionPage(TransactionType.transfer),
                     assetPath: AppAssets.transferIcon,
                     title: context.locale.transfer,
                     subtitle: context.locale.makeTransfersEasily,

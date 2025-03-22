@@ -2,6 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vaultiq/src/common/navigation/entities/customized_route.dart';
 import 'package:vaultiq/src/common/navigation/route.dart';
+import 'package:vaultiq/src/common/utils/enum/transaction_type.dart';
 
 part 'navigation_state.dart';
 
@@ -24,12 +25,12 @@ class NavigationPanelCubit extends Cubit<NavigationPanelState> {
     );
   }
 
-  void navigateToIncomePage() {
+  void navigateToAddTransactionPage(TransactionType transactionType) {
     emit(
       state.copyWith(
-        route: const CustomizedRoute(
+        route: CustomizedRoute(
           TypeRoute.navigateTo,
-          AddTransactionRoute(),
+          AddTransactionRoute(transactionType: transactionType),
         ),
       ),
     );

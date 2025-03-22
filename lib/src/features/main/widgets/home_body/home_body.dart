@@ -4,7 +4,10 @@ import 'package:vaultiq/src/common/constants/app_assets.dart';
 import 'package:vaultiq/src/common/constants/app_dimensions.dart';
 import 'package:vaultiq/src/common/constants/app_fonts.dart';
 import 'package:vaultiq/src/common/cubit_scope/cubit_scope.dart';
+import 'package:vaultiq/src/common/di/injector.dart';
+import 'package:vaultiq/src/common/shared_cubits/navigation_panel_cubit/navigation_panel_cubit.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
+import 'package:vaultiq/src/common/utils/enum/transaction_type.dart';
 import 'package:vaultiq/src/common/widgets/vector_image/vector_image.dart';
 import 'package:vaultiq/src/features/main/cubits/home_cubit/home_cubit.dart';
 import 'package:vaultiq/src/features/main/widgets/home_body/widgets/current_balance.dart';
@@ -21,12 +24,17 @@ class HomeBody extends StatefulWidget {
 }
 
 class _HomeBodyState extends State<HomeBody> {
+  final _navigationalPanelCubit = i.get<NavigationPanelCubit>();
+  final _homeCubit = i.get<HomeCubit>();
   late final DraggableScrollableController _draggableScrollableController;
 
   @override
   void initState() {
     super.initState();
 
+    _homeCubit
+      ..getTransactions()
+      ..getWallets();
     _draggableScrollableController = DraggableScrollableController();
   }
 
@@ -41,8 +49,16 @@ class _HomeBodyState extends State<HomeBody> {
   Widget build(BuildContext context) {
     return CubitScope<HomeCubit>(
       child: BlocBuilder<HomeCubit, HomeState>(
+        bloc: _homeCubit,
         builder: (context, state) {
-          final cubit = CubitScope.of<HomeCubit>(context);
+          if (state.transactions == null && state.wallets == null) {
+            return Center(
+              child: CircularProgressIndicator(
+                color: context.theme.primaryColor,
+              ),
+            );
+          }
+
           if (state.rates.result == null) {
             return Center(
               child: CircularProgressIndicator(
@@ -68,47 +84,56 @@ class _HomeBodyState extends State<HomeBody> {
                           fontWeight: AppFonts.weightRegular,
                         ),
                       ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: AppDimensions.medium,
-                          horizontal: AppDimensions.large,
-                        ),
-                        decoration: BoxDecoration(
-                          color: context.theme.cardBackgroundColor,
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(
-                              AppDimensions.superLarge,
-                            ),
+                      InkWell(
+                        onTap: () =>
+                            _navigationalPanelCubit.updateNavigationIndex(1),
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: AppDimensions.medium,
+                            horizontal: AppDimensions.large,
                           ),
-                        ),
-                        child: Row(
-                          children: [
-                            VectorImage(
-                              svgAssetPath: AppAssets.statisticsIcon,
-                              color: context.theme.primaryIconColor,
-                            ),
-                            const SizedBox(width: AppDimensions.medium),
-                            Text(
-                              'Statistics',
-                              style: context.themeData.textTheme.headlineSmall
-                                  ?.copyWith(
-                                color: context.theme.bodyTextColor,
-                                fontWeight: AppFonts.weightRegular,
+                          decoration: BoxDecoration(
+                            color: context.theme.cardBackgroundColor,
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(
+                                AppDimensions.superLarge,
                               ),
                             ),
-                          ],
+                          ),
+                          child: Row(
+                            children: [
+                              VectorImage(
+                                svgAssetPath: AppAssets.statisticsIcon,
+                                color: context.theme.primaryIconColor,
+                              ),
+                              const SizedBox(width: AppDimensions.medium),
+                              Text(
+                                'Statistics',
+                                style: context.themeData.textTheme.headlineSmall
+                                    ?.copyWith(
+                                  color: context.theme.bodyTextColor,
+                                  fontWeight: AppFonts.weightRegular,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: AppDimensions.medium),
                   CurrentBalance(
-                    balance: cubit.convert('TRY', 300000, 'USD'),
+                    balance: '${state.totalBalance}',
                   ),
                   const SizedBox(height: AppDimensions.extraLarge),
                   TransactionAction(
-                    onTransferTap: () {},
-                    onExpenseTap: () {},
+                    onTransferTap: () =>
+                        _navigationalPanelCubit.navigateToAddTransactionPage(
+                      TransactionType.transfer,
+                    ),
+                    onExpenseTap: () =>
+                        _navigationalPanelCubit.navigateToAddTransactionPage(
+                      TransactionType.expense,
+                    ),
                   ),
                   const SizedBox(height: AppDimensions.extraLarge),
                   RecentTransfersAndPlan(
@@ -116,6 +141,7 @@ class _HomeBodyState extends State<HomeBody> {
                   ),
                 ],
               ),
+              const SizedBox(height: AppDimensions.medium),
               DraggableScrollableSheet(
                 controller: _draggableScrollableController,
                 minChildSize: 0.4,
@@ -123,6 +149,7 @@ class _HomeBodyState extends State<HomeBody> {
                 builder: (context, scrollController) {
                   return HomeScrollableSheet(
                     scrollController: scrollController,
+                    transactions: state.transactions,
                   );
                 },
               ),

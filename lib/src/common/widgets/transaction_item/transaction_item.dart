@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:vaultiq/src/common/constants/app_dimensions.dart';
 import 'package:vaultiq/src/common/constants/app_fonts.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
+import 'package:vaultiq/src/common/utils/enum/transaction_type.dart';
+import 'package:vaultiq/src/common/utils/extensions/string_extension.dart';
+import 'package:vaultiq/src/core/domain/entities/transaction_model/transaction_model.dart';
 
 class TransactionItem extends StatelessWidget {
+  final TransactionModel transactionModel;
   final String assetPath;
-  final String title;
-  final String date;
-  final String amount;
   const TransactionItem({
+    required this.transactionModel,
     required this.assetPath,
-    required this.title,
-    required this.date,
-    required this.amount,
     super.key,
   });
 
@@ -34,14 +33,14 @@ class TransactionItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                title,
+                transactionModel.transactionTitle,
                 style: context.themeData.textTheme.headlineMedium?.copyWith(
                   color: context.theme.bodyTextColor,
                   fontWeight: AppFonts.weightBold,
                 ),
               ),
               Text(
-                date,
+                transactionModel.createdAt.toTransactionFormat(),
                 style: context.themeData.textTheme.headlineSmall?.copyWith(
                   color: context.theme.hintTextColor,
                   fontWeight: AppFonts.weightRegular,
@@ -53,11 +52,34 @@ class TransactionItem extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              Text(
-                '-\$$amount',
-                style: context.themeData.textTheme.headlineSmall?.copyWith(
-                  color: context.theme.primaryRedColor,
-                  fontWeight: AppFonts.weightBold,
+              Text.rich(
+                TextSpan(
+                  children: [
+                    if (transactionModel.transactionType ==
+                        TransactionType.expense)
+                      TextSpan(
+                        text: '-',
+                        style:
+                            context.themeData.textTheme.headlineSmall?.copyWith(
+                          color: transactionModel.transactionType ==
+                                  TransactionType.expense
+                              ? context.theme.primaryRedColor
+                              : context.theme.primaryGreenColor,
+                          fontWeight: AppFonts.weightBold,
+                        ),
+                      ),
+                    TextSpan(
+                      text: '\$${transactionModel.defaultAmount}',
+                      style:
+                          context.themeData.textTheme.headlineSmall?.copyWith(
+                        color: transactionModel.transactionType ==
+                                TransactionType.expense
+                            ? context.theme.primaryRedColor
+                            : context.theme.primaryGreenColor,
+                        fontWeight: AppFonts.weightBold,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Text(
