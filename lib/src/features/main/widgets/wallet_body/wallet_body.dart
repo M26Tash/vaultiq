@@ -1,13 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:vaultiq/src/common/cubit_scope/cubit_scope.dart';
 import 'package:vaultiq/src/common/di/injector.dart';
-import 'package:vaultiq/src/common/theme/theme_extension.dart';
-import 'package:vaultiq/src/common/utils/enum/wallet_type.dart';
-import 'package:vaultiq/src/common/widgets/custom_tab_bar/custom_tab_bar.dart';
-import 'package:vaultiq/src/common/widgets/custom_tab_bar/custom_tab_bar_body.dart';
 import 'package:vaultiq/src/features/main/cubits/wallet_cubit/wallet_cubit.dart';
-import 'package:vaultiq/src/features/main/widgets/wallet_body/widgets/wallet_items.dart';
 
 class WalletBody extends StatefulWidget {
   const WalletBody({super.key});
