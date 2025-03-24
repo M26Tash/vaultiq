@@ -14,7 +14,8 @@ class AuthGuard extends AutoRouteGuard {
       (event) {
         if (event.currentSession != null) {
           router.replace(
-            const MainRoute(),
+            const LocalAuthRoute(),
+            // const MainRoute(),
           );
         }
       },
@@ -22,7 +23,8 @@ class AuthGuard extends AutoRouteGuard {
 
     if (session != null) {
       router.replace(
-        const MainRoute(),
+        const LocalAuthRoute(),
+        // const MainRoute(),
       );
     } else {
       resolver.next();

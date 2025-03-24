@@ -77,9 +77,9 @@ class _MainPageState extends State<MainPage> {
 
   String? _appBarTitle(int pageIndex) => switch (pageIndex) {
         0 => null,
-        1 => 'Statistics',
-        2 => 'Wallet',
-        3 => 'More',
+        1 => context.locale.statistics,
+        2 => context.locale.wallet,
+        3 => context.locale.more,
         _ => null,
       };
 

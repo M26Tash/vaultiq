@@ -139,4 +139,61 @@ class VaultiqLocalizationTr extends VaultiqLocalization {
 
   @override
   String get tryAgain => 'Tekrar dene';
+
+  @override
+  String get myBalance => 'Bakiyem';
+
+  @override
+  String get getPlan => 'Plan al';
+
+  @override
+  String get recentTransaction => 'Son işlem';
+
+  @override
+  String get transactions => 'İşlemler';
+
+  @override
+  String get completed => 'Tamamlandı';
+
+  @override
+  String get myAccount => 'Hesabım';
+
+  @override
+  String get makeChangesToYourAccount => 'Hesabınızı değiştirin';
+
+  @override
+  String get faceIdTouchId => 'Face ID / Touch ID';
+
+  @override
+  String get manageYourDeviceSecurity => 'Cihaz güvenliğinizi yönetin';
+
+  @override
+  String get language => 'Dil';
+
+  @override
+  String get setYourPreferredAppLanguage => 'Tercih ettiğiniz uygulama dilini seçin';
+
+  @override
+  String get helpAndSupport => 'Yardım ve Destek';
+
+  @override
+  String get aboutApp => 'Uygulama Hakkında';
+
+  @override
+  String get logOut => 'Çıkış Yap';
+
+  @override
+  String get furtherSecureYourAccountForSafety => 'Hesabınızı daha güvenli hale getirin';
+
+  @override
+  String get username => 'Kullanıcı adı';
+
+  @override
+  String get fullName => 'Ad Soyad';
+
+  @override
+  String get email => 'E-posta';
+
+  @override
+  String get dateOfBirth => 'Doğum Tarihi';
 }

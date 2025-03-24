@@ -1,0 +1,4 @@
+enum LocalAuthStatus {
+  enable,
+  disable,
+}

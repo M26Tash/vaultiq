@@ -87,10 +87,12 @@ class _SettingsItem extends StatelessWidget {
                 ),
               ),
             const Spacer(),
-            VectorImage(
-              svgAssetPath: AppAssets.arrowRightIcon,
-              color: context.theme.primaryIconColor,
-            ),
+            if (settingsItem.suffix == null)
+              VectorImage(
+                svgAssetPath: AppAssets.arrowRightIcon,
+                color: context.theme.primaryIconColor,
+              ),
+            if (settingsItem.suffix != null) settingsItem.suffix!,
           ],
         ),
       ),
@@ -103,11 +105,12 @@ final class SettingsItem {
   final String assetPath;
   final String title;
   final String? subtitle;
-
+  final Widget? suffix;
   const SettingsItem({
     required this.onTap,
     required this.assetPath,
     required this.title,
     this.subtitle,
+    this.suffix,
   });
 }

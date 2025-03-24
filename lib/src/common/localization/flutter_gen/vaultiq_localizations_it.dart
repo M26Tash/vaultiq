@@ -139,4 +139,61 @@ class VaultiqLocalizationIt extends VaultiqLocalization {
 
   @override
   String get tryAgain => 'Riprova';
+
+  @override
+  String get myBalance => 'Il mio saldo';
+
+  @override
+  String get getPlan => 'Ottieni piano';
+
+  @override
+  String get recentTransaction => 'Transazione recente';
+
+  @override
+  String get transactions => 'Transazioni';
+
+  @override
+  String get completed => 'Completato';
+
+  @override
+  String get myAccount => 'Il mio account';
+
+  @override
+  String get makeChangesToYourAccount => 'Apporta modifiche al tuo account';
+
+  @override
+  String get faceIdTouchId => 'Face ID / Touch ID';
+
+  @override
+  String get manageYourDeviceSecurity => 'Gestisci la sicurezza del tuo dispositivo';
+
+  @override
+  String get language => 'Lingua';
+
+  @override
+  String get setYourPreferredAppLanguage => 'Imposta la lingua preferita dell\'app';
+
+  @override
+  String get helpAndSupport => 'Aiuto e supporto';
+
+  @override
+  String get aboutApp => 'Informazioni sull\'app';
+
+  @override
+  String get logOut => 'Disconnettersi';
+
+  @override
+  String get furtherSecureYourAccountForSafety => 'Proteggi ulteriormente il tuo account';
+
+  @override
+  String get username => 'Nome utente';
+
+  @override
+  String get fullName => 'Nome completo';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get dateOfBirth => 'Data di nascita';
 }

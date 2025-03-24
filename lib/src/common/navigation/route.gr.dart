@@ -102,6 +102,22 @@ class ForgotPasswordRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [LocalAuthPage]
+class LocalAuthRoute extends PageRouteInfo<void> {
+  const LocalAuthRoute({List<PageRouteInfo>? children})
+    : super(LocalAuthRoute.name, initialChildren: children);
+
+  static const String name = 'LocalAuthRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const LocalAuthPage();
+    },
+  );
+}
+
+/// generated route for
 /// [MainPage]
 class MainRoute extends PageRouteInfo<void> {
   const MainRoute({List<PageRouteInfo>? children})
@@ -113,6 +129,22 @@ class MainRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const MainPage();
+    },
+  );
+}
+
+/// generated route for
+/// [MyAccountPage]
+class MyAccountRoute extends PageRouteInfo<void> {
+  const MyAccountRoute({List<PageRouteInfo>? children})
+    : super(MyAccountRoute.name, initialChildren: children);
+
+  static const String name = 'MyAccountRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const MyAccountPage();
     },
   );
 }

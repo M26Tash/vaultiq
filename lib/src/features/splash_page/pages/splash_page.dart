@@ -6,6 +6,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vaultiq/src/common/cubit_scope/cubit_scope.dart';
 import 'package:vaultiq/src/common/di/injector.dart';
 import 'package:vaultiq/src/common/navigation/entities/auto_route_extension.dart';
+import 'package:vaultiq/src/common/shared_cubits/locale_cubit/app_locale_cubit.dart';
+import 'package:vaultiq/src/common/shared_cubits/theme_cubit/theme_shared_cubit.dart';
 import 'package:vaultiq/src/features/splash_page/cubit/splash_cubit.dart';
 import 'package:vaultiq/src/features/splash_page/widgets/splash_body.dart';
 
@@ -21,6 +23,9 @@ class _SplashPageState extends State<SplashPage>
     with SingleTickerProviderStateMixin {
   final splashCubit = i.get<SplashCubit>();
   late AnimationController _animationController;
+
+  final AppLocaleCubit _appLocaleCubit = i.get<AppLocaleCubit>();
+  final ThemeSharedCubit _themeSharedCubit = i.get<ThemeSharedCubit>();
 
   @override
   void initState() {
@@ -40,6 +45,9 @@ class _SplashPageState extends State<SplashPage>
       );
       _animationController.forward();
     });
+
+    _appLocaleCubit.readLocale();
+    _themeSharedCubit.readThemeType();
   }
 
   @override

@@ -5,6 +5,7 @@ import 'package:vaultiq/src/common/constants/app_dimensions.dart';
 import 'package:vaultiq/src/common/constants/app_fonts.dart';
 import 'package:vaultiq/src/common/cubit_scope/cubit_scope.dart';
 import 'package:vaultiq/src/common/di/injector.dart';
+import 'package:vaultiq/src/common/localization/localizations_ext.dart';
 import 'package:vaultiq/src/common/shared_cubits/navigation_panel_cubit/navigation_panel_cubit.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
 import 'package:vaultiq/src/common/utils/enum/transaction_type.dart';
@@ -77,7 +78,7 @@ class _HomeBodyState extends State<HomeBody> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'My Balance',
+                        context.locale.myBalance,
                         style: context.themeData.textTheme.headlineMedium
                             ?.copyWith(
                           color: context.theme.hintTextColor,
@@ -108,7 +109,7 @@ class _HomeBodyState extends State<HomeBody> {
                               ),
                               const SizedBox(width: AppDimensions.medium),
                               Text(
-                                'Statistics',
+                                context.locale.statistics,
                                 style: context.themeData.textTheme.headlineSmall
                                     ?.copyWith(
                                   color: context.theme.bodyTextColor,

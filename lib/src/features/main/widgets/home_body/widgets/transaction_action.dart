@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vaultiq/src/common/constants/app_assets.dart';
 import 'package:vaultiq/src/common/constants/app_dimensions.dart';
 import 'package:vaultiq/src/common/constants/app_fonts.dart';
+import 'package:vaultiq/src/common/localization/localizations_ext.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
 import 'package:vaultiq/src/common/widgets/vector_image/vector_image.dart';
 
@@ -42,7 +43,7 @@ class TransactionAction extends StatelessWidget {
                 ),
                 const SizedBox(width: AppDimensions.medium),
                 Text(
-                  'Transfer',
+                  context.locale.transfer,
                   style: context.themeData.textTheme.headlineMedium?.copyWith(
                     color: context.theme.bodyTextColor,
                     fontWeight: AppFonts.weightRegular,
@@ -73,7 +74,7 @@ class TransactionAction extends StatelessWidget {
                 ),
                 const SizedBox(width: AppDimensions.medium),
                 Text(
-                  'Expense',
+                  context.locale.expense,
                   style: context.themeData.textTheme.headlineMedium?.copyWith(
                     color: context.theme.bodyTextColor,
                     fontWeight: AppFonts.weightRegular,
