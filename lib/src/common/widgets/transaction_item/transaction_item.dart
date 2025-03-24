@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:vaultiq/src/common/constants/app_dimensions.dart';
 import 'package:vaultiq/src/common/constants/app_fonts.dart';
+import 'package:vaultiq/src/common/localization/localizations_ext.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
 import 'package:vaultiq/src/common/utils/enum/transaction_type.dart';
 import 'package:vaultiq/src/common/utils/extensions/string_extension.dart';
@@ -83,7 +84,7 @@ class TransactionItem extends StatelessWidget {
                 ),
               ),
               Text(
-                'Completed',
+                context.locale.completed,
                 style: context.themeData.textTheme.headlineSmall?.copyWith(
                   color: context.theme.hintTextColor,
                   fontWeight: AppFonts.weightRegular,

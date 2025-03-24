@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vaultiq/src/common/constants/app_assets.dart';
 import 'package:vaultiq/src/common/constants/app_dimensions.dart';
 import 'package:vaultiq/src/common/constants/app_fonts.dart';
+import 'package:vaultiq/src/common/localization/localizations_ext.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
 import 'package:vaultiq/src/common/widgets/drag_handle_indicator/drag_handle_indicator.dart';
 import 'package:vaultiq/src/common/widgets/transaction_item/transaction_item.dart';
@@ -45,7 +46,7 @@ class HomeScrollableSheet extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Text(
-              'Transactions',
+              context.locale.transactions,
               style: context.themeData.textTheme.headlineLarge?.copyWith(
                 color: context.theme.bodyTextColor,
                 fontWeight: AppFonts.weightBold,

@@ -7,9 +7,9 @@ import 'package:vaultiq/src/common/di/repositories_module.dart';
 GetIt get i => GetIt.instance;
 
 void injectDependencies() {
-  initSharedCubits();
-  initCubits();
   initDataSource();
   initRepositories();
   initInteractors();
+  initSharedCubits();
+  initCubits();
 }

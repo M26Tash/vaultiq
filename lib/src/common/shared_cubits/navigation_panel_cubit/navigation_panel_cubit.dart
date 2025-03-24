@@ -38,6 +38,19 @@ class NavigationPanelCubit extends Cubit<NavigationPanelState> {
     Future.microtask(_resetRoute);
   }
 
+  void navigateToMyAccountPage() {
+    emit(
+      state.copyWith(
+        route: const CustomizedRoute(
+          TypeRoute.navigateTo,
+          MyAccountRoute(),
+        ),
+      ),
+    );
+
+    _resetRoute();
+  }
+
   void _resetRoute() {
     emit(
       state.copyWith(

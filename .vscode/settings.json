@@ -1,12 +1,9 @@
 {
-    "cSpell.words": [
-        "Muhammed",
-        "selam",
-        "vaultiq"
-    ],
+    "cSpell.words": [],
     "java.configuration.updateBuildConfiguration": "interactive",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.fixAll": "explicit",
-    }
+    },
+    "files.autoSave": "afterDelay",
 }

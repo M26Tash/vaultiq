@@ -93,7 +93,7 @@ class VaultiqLocalizationEn extends VaultiqLocalization {
   String get wallet => 'Wallet';
 
   @override
-  String get more => 'more';
+  String get more => 'More';
 
   @override
   String get news => 'News';
@@ -139,4 +139,61 @@ class VaultiqLocalizationEn extends VaultiqLocalization {
 
   @override
   String get tryAgain => 'Try again';
+
+  @override
+  String get myBalance => 'My Balance';
+
+  @override
+  String get getPlan => 'Get plan';
+
+  @override
+  String get recentTransaction => 'Recent Transaction';
+
+  @override
+  String get transactions => 'Transactions';
+
+  @override
+  String get completed => 'Completed';
+
+  @override
+  String get myAccount => 'My Account';
+
+  @override
+  String get makeChangesToYourAccount => 'Make changes to your account';
+
+  @override
+  String get faceIdTouchId => 'Face ID / Touch ID';
+
+  @override
+  String get manageYourDeviceSecurity => 'Manage your device security';
+
+  @override
+  String get language => 'Language';
+
+  @override
+  String get setYourPreferredAppLanguage => 'Set your preferred app language';
+
+  @override
+  String get helpAndSupport => 'Help & Support';
+
+  @override
+  String get aboutApp => 'About App';
+
+  @override
+  String get logOut => 'Log out';
+
+  @override
+  String get furtherSecureYourAccountForSafety => 'Further secure your account for safety';
+
+  @override
+  String get username => 'Username';
+
+  @override
+  String get fullName => 'Full Name';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get dateOfBirth => 'Date of Birth';
 }
