@@ -7,13 +7,14 @@ import 'package:vaultiq/src/common/widgets/vector_image/vector_image.dart';
 
 class ProfileOverview extends StatelessWidget {
   final VoidCallback onEditTap;
-  final String fullName;
-  final String email;
-
+  final String? fullName;
+  final String? email;
+  final String? avatarUrl;
   const ProfileOverview({
     required this.onEditTap,
     required this.fullName,
     required this.email,
+    required this.avatarUrl,
     super.key,
   });
 
@@ -31,22 +32,24 @@ class ProfileOverview extends StatelessWidget {
       ),
       child: Row(
         children: [
-          const CircleAvatar(
+          CircleAvatar(
             radius: 30,
-            backgroundImage: AssetImage(AppAssets.person),
+            backgroundColor: context.theme.cardBackgroundColor,
+            backgroundImage:
+                avatarUrl != null ? NetworkImage(avatarUrl!) : null,
           ),
           const SizedBox(width: AppDimensions.medium),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                fullName,
+                fullName ?? '',
                 style: context.themeData.textTheme.headlineMedium?.copyWith(
                   color: context.theme.bodyTextColor,
                 ),
               ),
               Text(
-                email,
+                email ?? '',
                 style: context.themeData.textTheme.headlineSmall?.copyWith(
                   fontSize: AppFonts.sizeTitleMedium,
                   color: context.theme.bodyTextColor,

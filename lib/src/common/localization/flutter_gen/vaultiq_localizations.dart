@@ -270,7 +270,7 @@ abstract class VaultiqLocalization {
   /// No description provided for @more.
   ///
   /// In en, this message translates to:
-  /// **'more'**
+  /// **'More'**
   String get more;
 
   /// No description provided for @news.
@@ -362,6 +362,120 @@ abstract class VaultiqLocalization {
   /// In en, this message translates to:
   /// **'Try again'**
   String get tryAgain;
+
+  /// No description provided for @myBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'My Balance'**
+  String get myBalance;
+
+  /// No description provided for @getPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Get plan'**
+  String get getPlan;
+
+  /// No description provided for @recentTransaction.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Transaction'**
+  String get recentTransaction;
+
+  /// No description provided for @transactions.
+  ///
+  /// In en, this message translates to:
+  /// **'Transactions'**
+  String get transactions;
+
+  /// No description provided for @completed.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get completed;
+
+  /// No description provided for @myAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'My Account'**
+  String get myAccount;
+
+  /// No description provided for @makeChangesToYourAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Make changes to your account'**
+  String get makeChangesToYourAccount;
+
+  /// No description provided for @faceIdTouchId.
+  ///
+  /// In en, this message translates to:
+  /// **'Face ID / Touch ID'**
+  String get faceIdTouchId;
+
+  /// No description provided for @manageYourDeviceSecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage your device security'**
+  String get manageYourDeviceSecurity;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @setYourPreferredAppLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your preferred app language'**
+  String get setYourPreferredAppLanguage;
+
+  /// No description provided for @helpAndSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Help & Support'**
+  String get helpAndSupport;
+
+  /// No description provided for @aboutApp.
+  ///
+  /// In en, this message translates to:
+  /// **'About App'**
+  String get aboutApp;
+
+  /// No description provided for @logOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out'**
+  String get logOut;
+
+  /// No description provided for @furtherSecureYourAccountForSafety.
+  ///
+  /// In en, this message translates to:
+  /// **'Further secure your account for safety'**
+  String get furtherSecureYourAccountForSafety;
+
+  /// No description provided for @username.
+  ///
+  /// In en, this message translates to:
+  /// **'Username'**
+  String get username;
+
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @dateOfBirth.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of Birth'**
+  String get dateOfBirth;
 }
 
 class _VaultiqLocalizationDelegate extends LocalizationsDelegate<VaultiqLocalization> {

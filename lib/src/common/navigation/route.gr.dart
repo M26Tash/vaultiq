@@ -11,6 +11,22 @@
 part of 'route.dart';
 
 /// generated route for
+/// [AboutAppPage]
+class AboutAppRoute extends PageRouteInfo<void> {
+  const AboutAppRoute({List<PageRouteInfo>? children})
+    : super(AboutAppRoute.name, initialChildren: children);
+
+  static const String name = 'AboutAppRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const AboutAppPage();
+    },
+  );
+}
+
+/// generated route for
 /// [AddTransactionPage]
 class AddTransactionRoute extends PageRouteInfo<AddTransactionRouteArgs> {
   AddTransactionRoute({
@@ -70,6 +86,22 @@ class AuthRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [ContactUsPage]
+class ContactUsRoute extends PageRouteInfo<void> {
+  const ContactUsRoute({List<PageRouteInfo>? children})
+    : super(ContactUsRoute.name, initialChildren: children);
+
+  static const String name = 'ContactUsRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const ContactUsPage();
+    },
+  );
+}
+
+/// generated route for
 /// [DefaultCurrencyPage]
 class DefaultCurrencyRoute extends PageRouteInfo<void> {
   const DefaultCurrencyRoute({List<PageRouteInfo>? children})
@@ -81,6 +113,22 @@ class DefaultCurrencyRoute extends PageRouteInfo<void> {
     name,
     builder: (data) {
       return const DefaultCurrencyPage();
+    },
+  );
+}
+
+/// generated route for
+/// [FAQPage]
+class FAQRoute extends PageRouteInfo<void> {
+  const FAQRoute({List<PageRouteInfo>? children})
+    : super(FAQRoute.name, initialChildren: children);
+
+  static const String name = 'FAQRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const FAQPage();
     },
   );
 }
@@ -102,6 +150,38 @@ class ForgotPasswordRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [HelpCenterPage]
+class HelpCenterRoute extends PageRouteInfo<void> {
+  const HelpCenterRoute({List<PageRouteInfo>? children})
+    : super(HelpCenterRoute.name, initialChildren: children);
+
+  static const String name = 'HelpCenterRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const HelpCenterPage();
+    },
+  );
+}
+
+/// generated route for
+/// [LocalAuthPage]
+class LocalAuthRoute extends PageRouteInfo<void> {
+  const LocalAuthRoute({List<PageRouteInfo>? children})
+    : super(LocalAuthRoute.name, initialChildren: children);
+
+  static const String name = 'LocalAuthRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      return const LocalAuthPage();
+    },
+  );
+}
+
+/// generated route for
 /// [MainPage]
 class MainRoute extends PageRouteInfo<void> {
   const MainRoute({List<PageRouteInfo>? children})
@@ -115,6 +195,43 @@ class MainRoute extends PageRouteInfo<void> {
       return const MainPage();
     },
   );
+}
+
+/// generated route for
+/// [MyAccountPage]
+class MyAccountRoute extends PageRouteInfo<MyAccountRouteArgs> {
+  MyAccountRoute({
+    required ProfileModel profileModel,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+         MyAccountRoute.name,
+         args: MyAccountRouteArgs(profileModel: profileModel, key: key),
+         initialChildren: children,
+       );
+
+  static const String name = 'MyAccountRoute';
+
+  static PageInfo page = PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<MyAccountRouteArgs>();
+      return MyAccountPage(profileModel: args.profileModel, key: args.key);
+    },
+  );
+}
+
+class MyAccountRouteArgs {
+  const MyAccountRouteArgs({required this.profileModel, this.key});
+
+  final ProfileModel profileModel;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'MyAccountRouteArgs{profileModel: $profileModel, key: $key}';
+  }
 }
 
 /// generated route for

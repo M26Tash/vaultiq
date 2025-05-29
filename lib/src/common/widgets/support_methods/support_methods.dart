@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -48,6 +47,7 @@ abstract final class SupportMethods {
     Color barrierColor = kCupertinoModalBarrierColor,
   }) async {
     final sheetBody = Material(
+      color: context.theme.backgroundColor,
       borderRadius: const BorderRadius.all(
         Radius.circular(AppDimensions.large),
       ),
@@ -65,7 +65,9 @@ abstract final class SupportMethods {
                       Text(
                         sheetTitle,
                         style: titleStyle ??
-                            context.themeData.textTheme.displaySmall,
+                            context.themeData.textTheme.displaySmall?.copyWith(
+                              color: context.theme.bodyTextColor,
+                            ),
                       ),
                     const Spacer(),
                     if (useCloseButton)

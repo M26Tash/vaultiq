@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vaultiq/src/common/constants/app_assets.dart';
 import 'package:vaultiq/src/common/constants/app_dimensions.dart';
 import 'package:vaultiq/src/common/constants/app_fonts.dart';
+import 'package:vaultiq/src/common/localization/localizations_ext.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
 import 'package:vaultiq/src/common/widgets/drag_handle_indicator/drag_handle_indicator.dart';
 import 'package:vaultiq/src/common/widgets/transaction_item/transaction_item.dart';
@@ -9,7 +10,7 @@ import 'package:vaultiq/src/core/domain/entities/transaction_model/transaction_m
 
 class HomeScrollableSheet extends StatelessWidget {
   final ScrollController scrollController;
-  final List<TransactionModel?>? transactions;
+  final List<TransactionModel> transactions;
   const HomeScrollableSheet({
     required this.scrollController,
     required this.transactions,
@@ -45,7 +46,7 @@ class HomeScrollableSheet extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Text(
-              'Transactions',
+              context.locale.transactions,
               style: context.themeData.textTheme.headlineLarge?.copyWith(
                 color: context.theme.bodyTextColor,
                 fontWeight: AppFonts.weightBold,
@@ -57,7 +58,7 @@ class HomeScrollableSheet extends StatelessWidget {
               height: AppDimensions.medium,
             ),
           ),
-          if (transactions?.first == null)
+          if (transactions.isEmpty)
             SliverToBoxAdapter(
               child: Text(
                 'EMPTY',
@@ -66,12 +67,12 @@ class HomeScrollableSheet extends StatelessWidget {
                 ),
               ),
             ),
-          if (transactions != null && transactions?.first != null)
-            for (int i = 0; i < transactions!.length; i++)
+          if (transactions.isNotEmpty)
+            for (int i = 0; i < transactions.length; i++)
               SliverToBoxAdapter(
                 child: TransactionItem(
                   assetPath: AppAssets.chatGptIcon,
-                  transactionModel: transactions![i]!,
+                  transactionModel: transactions[i],
                 ),
               ),
         ],

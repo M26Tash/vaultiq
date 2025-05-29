@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:vaultiq/src/common/constants/app_dimensions.dart';
 import 'package:vaultiq/src/common/constants/app_fonts.dart';
+import 'package:vaultiq/src/common/localization/localizations_ext.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
 
 class RecentTransfersAndPlan extends StatelessWidget {
@@ -41,7 +42,7 @@ class RecentTransfersAndPlan extends StatelessWidget {
                 ),
                 const SizedBox(height: AppDimensions.medium),
                 Text(
-                  'Get plan',
+                  context.locale.getPlan,
                   style: context.themeData.textTheme.headlineMedium?.copyWith(
                     color: context.theme.bodyTextColor,
                     fontWeight: AppFonts.weightRegular,
@@ -81,7 +82,7 @@ class RecentTransfersAndPlan extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Recent Transaction',
+                      context.locale.recentTransaction,
                       style:
                           context.themeData.textTheme.headlineMedium?.copyWith(
                         color: context.theme.bodyTextColor,

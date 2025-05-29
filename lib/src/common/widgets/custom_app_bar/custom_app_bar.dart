@@ -10,13 +10,18 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final bool? centerTitle;
   final List<Widget>? actions;
-
+  final PreferredSizeWidget? bottom;
+  final TabController? tabController;
+  final ValueChanged<int>? onTabChange;
   const CustomAppBar({
     this.onLeadingTap,
     this.svgAssetPath,
     this.title,
     this.centerTitle = true,
     this.actions,
+    this.bottom,
+    this.tabController,
+    this.onTabChange,
     super.key,
   });
 
@@ -25,6 +30,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       backgroundColor: context.theme.backgroundColor,
       elevation: AppDimensions.none,
+      titleSpacing: AppDimensions.none,
       leadingWidth: svgAssetPath == null ? AppDimensions.none : null,
       leading: svgAssetPath == null
           ? const SizedBox()
@@ -43,9 +49,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: centerTitle,
       actions: actions,
       automaticallyImplyLeading: false,
+      bottom: bottom,
     );
   }
 
   @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => Size.fromHeight(
+        bottom == null ? kToolbarHeight : AppDimensions.extendedKToolbarHeight,
+      );
 }
