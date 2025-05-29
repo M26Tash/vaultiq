@@ -8,14 +8,19 @@ import 'package:vaultiq/src/common/localization/flutter_gen/vaultiq_localization
 import 'package:vaultiq/src/common/localization/localizations_ext.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
 import 'package:vaultiq/src/common/utils/extensions/list_extension.dart';
+import 'package:vaultiq/src/common/widgets/settings_section/settings_section.dart';
 import 'package:vaultiq/src/common/widgets/support_methods/support_methods.dart';
+import 'package:vaultiq/src/core/domain/entities/profile_model/profile_model.dart';
 import 'package:vaultiq/src/features/main/cubits/more_cubit/more_cubit.dart';
 import 'package:vaultiq/src/features/main/widgets/more_body/widgets/language_item.dart';
 import 'package:vaultiq/src/features/main/widgets/more_body/widgets/profile_overview.dart';
-import 'package:vaultiq/src/features/main/widgets/more_body/widgets/settings_section.dart';
 
 class MoreBody extends StatelessWidget {
-  const MoreBody({super.key});
+  final ProfileModel profileModel;
+  const MoreBody({
+    required this.profileModel,
+    super.key,
+  });
 
   Future<void> languageBottomSheet({
     required BuildContext context,
@@ -53,15 +58,20 @@ class MoreBody extends StatelessWidget {
             padding: const EdgeInsets.all(AppDimensions.large),
             children: [
               ProfileOverview(
-                fullName: 'Muhammed Taş',
-                email: 'tasm86688@gmail.com',
-                onEditTap: cubit.navigateToMyAccountPage,
+                fullName: profileModel.fullName,
+                email: profileModel.email,
+                avatarUrl: profileModel.avatarUrl,
+                onEditTap: () => cubit.navigateToMyAccountPage(
+                  profileModel: profileModel,
+                ),
               ),
               const SizedBox(height: AppDimensions.extraLarge),
               SettingsSection(
                 settingsItems: [
                   SettingsItem(
-                    onTap: cubit.navigateToMyAccountPage,
+                    onTap: () => cubit.navigateToMyAccountPage(
+                      profileModel: profileModel,
+                    ),
                     assetPath: AppAssets.accountIcon,
                     title: context.locale.myAccount,
                     subtitle: context.locale.makeChangesToYourAccount,
@@ -117,12 +127,12 @@ class MoreBody extends StatelessWidget {
               SettingsSection(
                 settingsItems: [
                   SettingsItem(
-                    onTap: () {},
+                    onTap: cubit.navigateToHelpCenterPage,
                     assetPath: AppAssets.questionIcon,
                     title: context.locale.helpAndSupport,
                   ),
                   SettingsItem(
-                    onTap: () {},
+                    onTap: cubit.navigateToAboutAppPage,
                     assetPath: AppAssets.heartIcon,
                     title: context.locale.aboutApp,
                   ),

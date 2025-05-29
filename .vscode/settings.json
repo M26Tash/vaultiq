@@ -6,4 +6,5 @@
         "source.fixAll": "explicit",
     },
     "files.autoSave": "afterDelay",
+    "disable-hardware-acceleration": true
 }

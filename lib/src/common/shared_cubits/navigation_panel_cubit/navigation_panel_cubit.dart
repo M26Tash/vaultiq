@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:vaultiq/src/common/navigation/entities/customized_route.dart';
 import 'package:vaultiq/src/common/navigation/route.dart';
 import 'package:vaultiq/src/common/utils/enum/transaction_type.dart';
+import 'package:vaultiq/src/core/domain/entities/profile_model/profile_model.dart';
 
 part 'navigation_state.dart';
 
@@ -38,12 +39,40 @@ class NavigationPanelCubit extends Cubit<NavigationPanelState> {
     Future.microtask(_resetRoute);
   }
 
-  void navigateToMyAccountPage() {
+  void navigateToMyAccountPage({
+    required ProfileModel profileModel,
+  }) {
+    emit(
+      state.copyWith(
+        route: CustomizedRoute(
+          TypeRoute.navigateTo,
+          MyAccountRoute(profileModel: profileModel),
+        ),
+      ),
+    );
+
+    _resetRoute();
+  }
+
+  void navigateToHelpCenterPage() {
     emit(
       state.copyWith(
         route: const CustomizedRoute(
           TypeRoute.navigateTo,
-          MyAccountRoute(),
+          HelpCenterRoute(),
+        ),
+      ),
+    );
+
+    _resetRoute();
+  }
+
+  void navigateAboutAppPage() {
+    emit(
+      state.copyWith(
+        route: const CustomizedRoute(
+          TypeRoute.navigateTo,
+          AboutAppRoute(),
         ),
       ),
     );

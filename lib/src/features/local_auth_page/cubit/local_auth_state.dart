@@ -16,7 +16,7 @@ class LocalAuthState extends Equatable {
 
   LocalAuthState copyWith({
     CustomizedRoute? route,
-    bool? didAuthenticate
+    bool? didAuthenticate,
   }) {
     return LocalAuthState(
       route: route ?? this.route,

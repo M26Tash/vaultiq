@@ -34,4 +34,7 @@ abstract final class AppDimensions {
   static const double dialogHorizontalPadding = 16;
   static const double dragIndicatorHeight = 4;
   static const double dragIndicatorWidth = 40;
+
+  // App Bar values
+  static const double extendedKToolbarHeight = 112;
 }

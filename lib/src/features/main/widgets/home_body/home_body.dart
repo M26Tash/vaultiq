@@ -10,6 +10,8 @@ import 'package:vaultiq/src/common/shared_cubits/navigation_panel_cubit/navigati
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
 import 'package:vaultiq/src/common/utils/enum/transaction_type.dart';
 import 'package:vaultiq/src/common/widgets/vector_image/vector_image.dart';
+import 'package:vaultiq/src/core/domain/entities/profile_model/profile_model.dart';
+import 'package:vaultiq/src/core/domain/entities/transaction_model/transaction_model.dart';
 import 'package:vaultiq/src/features/main/cubits/home_cubit/home_cubit.dart';
 import 'package:vaultiq/src/features/main/widgets/home_body/widgets/current_balance.dart';
 import 'package:vaultiq/src/features/main/widgets/home_body/widgets/home_header.dart';
@@ -18,7 +20,15 @@ import 'package:vaultiq/src/features/main/widgets/home_body/widgets/recent_trans
 import 'package:vaultiq/src/features/main/widgets/home_body/widgets/transaction_action.dart';
 
 class HomeBody extends StatefulWidget {
-  const HomeBody({super.key});
+  final ProfileModel profileModel;
+  final List<TransactionModel>? transactions;
+  final double totalBalance;
+  const HomeBody({
+    required this.profileModel,
+    required this.transactions,
+    required this.totalBalance,
+    super.key,
+  });
 
   @override
   State<HomeBody> createState() => _HomeBodyState();
@@ -26,16 +36,12 @@ class HomeBody extends StatefulWidget {
 
 class _HomeBodyState extends State<HomeBody> {
   final _navigationalPanelCubit = i.get<NavigationPanelCubit>();
-  final _homeCubit = i.get<HomeCubit>();
   late final DraggableScrollableController _draggableScrollableController;
 
   @override
   void initState() {
     super.initState();
 
-    _homeCubit
-      ..getTransactions()
-      ..getWallets();
     _draggableScrollableController = DraggableScrollableController();
   }
 
@@ -50,9 +56,8 @@ class _HomeBodyState extends State<HomeBody> {
   Widget build(BuildContext context) {
     return CubitScope<HomeCubit>(
       child: BlocBuilder<HomeCubit, HomeState>(
-        bloc: _homeCubit,
         builder: (context, state) {
-          if (state.transactions == null && state.wallets == null) {
+          if (widget.transactions == null) {
             return Center(
               child: CircularProgressIndicator(
                 color: context.theme.primaryColor,
@@ -72,7 +77,10 @@ class _HomeBodyState extends State<HomeBody> {
               ListView(
                 padding: const EdgeInsets.all(AppDimensions.large),
                 children: [
-                  const HomeHeader(),
+                  HomeHeader(
+                    fullName: widget.profileModel.fullName,
+                    avatarUrl: widget.profileModel.avatarUrl,
+                  ),
                   const SizedBox(height: AppDimensions.extraLarge),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -123,7 +131,7 @@ class _HomeBodyState extends State<HomeBody> {
                     ],
                   ),
                   CurrentBalance(
-                    balance: '${state.totalBalance}',
+                    balance: '${widget.totalBalance}',
                   ),
                   const SizedBox(height: AppDimensions.extraLarge),
                   TransactionAction(
@@ -150,7 +158,7 @@ class _HomeBodyState extends State<HomeBody> {
                 builder: (context, scrollController) {
                   return HomeScrollableSheet(
                     scrollController: scrollController,
-                    transactions: state.transactions,
+                    transactions: widget.transactions!,
                   );
                 },
               ),

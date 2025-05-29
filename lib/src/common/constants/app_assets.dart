@@ -50,6 +50,12 @@ abstract final class AppAssets {
   static const String sendIcon = '${_assetsVectors}send_icon.svg';
   static const String imageAddIcon = '${_assetsVectors}image_add_icon.svg';
   static const String brushIcon = '${_assetsVectors}brush_icon.svg';
+  static const String privacyPolicyIcon =
+      '${_assetsVectors}privacy_policy_icon.svg';
+  static const String agreementTermsIcon =
+      '${_assetsVectors}agreement_terms_icon.svg';
+  static const String peopleIcon = '${_assetsVectors}people_icon.svg';
+  static const String sortIcon = '${_assetsVectors}sort_icon.svg';
 
   // Cards design path
   static const String turquoiseCard = '${_assetsImages}turquoise_card.png';

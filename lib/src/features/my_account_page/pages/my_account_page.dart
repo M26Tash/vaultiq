@@ -7,12 +7,17 @@ import 'package:vaultiq/src/common/navigation/entities/auto_route_extension.dart
 import 'package:vaultiq/src/common/navigation/entities/customized_route.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
 import 'package:vaultiq/src/common/widgets/custom_app_bar/custom_app_bar.dart';
+import 'package:vaultiq/src/core/domain/entities/profile_model/profile_model.dart';
 import 'package:vaultiq/src/features/my_account_page/cubit/my_account_cubit.dart';
 import 'package:vaultiq/src/features/my_account_page/widgets/my_account_body.dart';
 
 @RoutePage()
 class MyAccountPage extends StatelessWidget {
-  const MyAccountPage({super.key});
+  final ProfileModel profileModel;
+  const MyAccountPage({
+    required this.profileModel,
+    super.key,
+  });
 
   void _listener(BuildContext context, MyAccountState state) {
     if (state.route.type == TypeRoute.pop) {
@@ -41,7 +46,11 @@ class MyAccountPage extends StatelessWidget {
               onLeadingTap: cubit.navigateBack,
               title: 'My Account',
             ),
-            body: const MyAccountBody(),
+            body: MyAccountBody(
+              myAccountCubit: cubit,
+              image: state.image,
+              profileModel: profileModel,
+            ),
           );
         },
       ),

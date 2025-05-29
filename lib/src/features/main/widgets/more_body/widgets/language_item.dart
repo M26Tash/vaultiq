@@ -56,15 +56,3 @@ class LanguageItem extends StatelessWidget {
     );
   }
 }
-
-// Row(
-//               children: [
-//                 CountryFlag.fromLanguageCode(language.languageCode),
-//                 Text(
-//                   '${LocaleNames.of(context)?.nameOf(language.languageCode)}',
-//                   style: context.themeData.textTheme.headlineMedium?.copyWith(
-//                     color: context.theme.bodyTextColor,
-//                   ),
-//                 ),
-//               ],
-//             ),

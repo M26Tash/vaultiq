@@ -2,4 +2,4 @@ package com.example.vaultiq
 
 import io.flutter.embedding.android.FlutterFragmentActivity
 
-class MainActivity: FlutterFragmentActivity()
+class MainActivity : FlutterFragmentActivity()
