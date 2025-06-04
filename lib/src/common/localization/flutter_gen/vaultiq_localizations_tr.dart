@@ -60,13 +60,15 @@ class VaultiqLocalizationTr extends VaultiqLocalization {
   String get chooseTheCurrency => 'Para birimini seçin';
 
   @override
-  String get selectYourDefaultCurrency => 'Varsayılan para biriminizi seçin. Daha sonra ekleyebilirsiniz';
+  String get selectYourDefaultCurrency =>
+      'Varsayılan para biriminizi seçin. Daha sonra ekleyebilirsiniz';
 
   @override
   String get search => 'Ara';
 
   @override
-  String get dontWorryItHappens => 'Endişelenmeyin! Olabilir. Lütfen hesabınızla ilişkili e-postayı girin';
+  String get dontWorryItHappens =>
+      'Endişelenmeyin! Olabilir. Lütfen hesabınızla ilişkili e-postayı girin';
 
   @override
   String get enterYourEmailAddress => 'E-posta adresinizi girin';
@@ -78,10 +80,12 @@ class VaultiqLocalizationTr extends VaultiqLocalization {
   String get enterCode => 'Kodu girin';
 
   @override
-  String get weveSentAOtpToYOurEmail => 'E-postanıza bir Tek Kullanımlık Şifre (OTP) gönderdik ';
+  String get weveSentAOtpToYOurEmail =>
+      'E-postanıza bir Tek Kullanımlık Şifre (OTP) gönderdik ';
 
   @override
-  String get invalidOtpTryAgain => 'Geçersiz OTP. Lütfen kodu kontrol edin ve tekrar deneyin';
+  String get invalidOtpTryAgain =>
+      'Geçersiz OTP. Lütfen kodu kontrol edin ve tekrar deneyin';
 
   @override
   String get home => 'Ana Sayfa';
@@ -111,7 +115,8 @@ class VaultiqLocalizationTr extends VaultiqLocalization {
   String get expense => 'Gider';
 
   @override
-  String get knowWhereAndWhenYouSpend => 'Nerede ve ne zaman harcadığınızı bilin';
+  String get knowWhereAndWhenYouSpend =>
+      'Nerede ve ne zaman harcadığınızı bilin';
 
   @override
   String get transfer => 'Transfer';
@@ -129,13 +134,15 @@ class VaultiqLocalizationTr extends VaultiqLocalization {
   String get cryptoRate => 'Kripto Kuru';
 
   @override
-  String get beAwareOfFutureMoneyTendance => 'Gelecekteki para eğilimlerinin farkında olun';
+  String get beAwareOfFutureMoneyTendance =>
+      'Gelecekteki para eğilimlerinin farkında olun';
 
   @override
   String get oops => 'Hata!';
 
   @override
-  String get somethingWentWrongOnOurEnd => 'Bir şeyler ters gitti. Lütfen tekrar deneyin. Sorun devam ederse, daha sonra tekrar deneyin.';
+  String get somethingWentWrongOnOurEnd =>
+      'Bir şeyler ters gitti. Lütfen tekrar deneyin. Sorun devam ederse, daha sonra tekrar deneyin.';
 
   @override
   String get tryAgain => 'Tekrar dene';
@@ -171,7 +178,8 @@ class VaultiqLocalizationTr extends VaultiqLocalization {
   String get language => 'Dil';
 
   @override
-  String get setYourPreferredAppLanguage => 'Tercih ettiğiniz uygulama dilini seçin';
+  String get setYourPreferredAppLanguage =>
+      'Tercih ettiğiniz uygulama dilini seçin';
 
   @override
   String get helpAndSupport => 'Yardım ve Destek';
@@ -183,7 +191,8 @@ class VaultiqLocalizationTr extends VaultiqLocalization {
   String get logOut => 'Çıkış Yap';
 
   @override
-  String get furtherSecureYourAccountForSafety => 'Hesabınızı daha güvenli hale getirin';
+  String get furtherSecureYourAccountForSafety =>
+      'Hesabınızı daha güvenli hale getirin';
 
   @override
   String get username => 'Kullanıcı adı';

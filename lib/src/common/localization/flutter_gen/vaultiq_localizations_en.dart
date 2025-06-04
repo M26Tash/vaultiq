@@ -60,13 +60,15 @@ class VaultiqLocalizationEn extends VaultiqLocalization {
   String get chooseTheCurrency => 'Choose the currency';
 
   @override
-  String get selectYourDefaultCurrency => 'Select your default currency. You can add more later';
+  String get selectYourDefaultCurrency =>
+      'Select your default currency. You can add more later';
 
   @override
   String get search => 'Search';
 
   @override
-  String get dontWorryItHappens => 'Don’t worry! It happens. Please enter the email associated with your account';
+  String get dontWorryItHappens =>
+      'Don’t worry! It happens. Please enter the email associated with your account';
 
   @override
   String get enterYourEmailAddress => 'Enter you email address';
@@ -78,10 +80,12 @@ class VaultiqLocalizationEn extends VaultiqLocalization {
   String get enterCode => 'Enter code';
 
   @override
-  String get weveSentAOtpToYOurEmail => 'We’ve sent a One-Time Password (OTP) to your email ';
+  String get weveSentAOtpToYOurEmail =>
+      'We’ve sent a One-Time Password (OTP) to your email ';
 
   @override
-  String get invalidOtpTryAgain => 'Invalid OTP. Please check the code and try again';
+  String get invalidOtpTryAgain =>
+      'Invalid OTP. Please check the code and try again';
 
   @override
   String get home => 'Home';
@@ -129,13 +133,15 @@ class VaultiqLocalizationEn extends VaultiqLocalization {
   String get cryptoRate => 'Crypto rate';
 
   @override
-  String get beAwareOfFutureMoneyTendance => 'Be aware of future money tendance';
+  String get beAwareOfFutureMoneyTendance =>
+      'Be aware of future money tendance';
 
   @override
   String get oops => 'Ooops!';
 
   @override
-  String get somethingWentWrongOnOurEnd => 'Something went wrong on our end. Please try again. If the issue persists, check back later';
+  String get somethingWentWrongOnOurEnd =>
+      'Something went wrong on our end. Please try again. If the issue persists, check back later';
 
   @override
   String get tryAgain => 'Try again';
@@ -183,7 +189,8 @@ class VaultiqLocalizationEn extends VaultiqLocalization {
   String get logOut => 'Log out';
 
   @override
-  String get furtherSecureYourAccountForSafety => 'Further secure your account for safety';
+  String get furtherSecureYourAccountForSafety =>
+      'Further secure your account for safety';
 
   @override
   String get username => 'Username';

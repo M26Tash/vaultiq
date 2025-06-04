@@ -64,7 +64,8 @@ import 'vaultiq_localizations_tr.dart';
 /// be consistent with the languages listed in the VaultiqLocalization.supportedLocales
 /// property.
 abstract class VaultiqLocalization {
-  VaultiqLocalization(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  VaultiqLocalization(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -72,7 +73,8 @@ abstract class VaultiqLocalization {
     return Localizations.of<VaultiqLocalization>(context, VaultiqLocalization)!;
   }
 
-  static const LocalizationsDelegate<VaultiqLocalization> delegate = _VaultiqLocalizationDelegate();
+  static const LocalizationsDelegate<VaultiqLocalization> delegate =
+      _VaultiqLocalizationDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -84,7 +86,8 @@ abstract class VaultiqLocalization {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -478,36 +481,40 @@ abstract class VaultiqLocalization {
   String get dateOfBirth;
 }
 
-class _VaultiqLocalizationDelegate extends LocalizationsDelegate<VaultiqLocalization> {
+class _VaultiqLocalizationDelegate
+    extends LocalizationsDelegate<VaultiqLocalization> {
   const _VaultiqLocalizationDelegate();
 
   @override
   Future<VaultiqLocalization> load(Locale locale) {
-    return SynchronousFuture<VaultiqLocalization>(lookupVaultiqLocalization(locale));
+    return SynchronousFuture<VaultiqLocalization>(
+        lookupVaultiqLocalization(locale));
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'it', 'ru', 'tr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'it', 'ru', 'tr'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_VaultiqLocalizationDelegate old) => false;
 }
 
 VaultiqLocalization lookupVaultiqLocalization(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return VaultiqLocalizationEn();
-    case 'it': return VaultiqLocalizationIt();
-    case 'ru': return VaultiqLocalizationRu();
-    case 'tr': return VaultiqLocalizationTr();
+    case 'en':
+      return VaultiqLocalizationEn();
+    case 'it':
+      return VaultiqLocalizationIt();
+    case 'ru':
+      return VaultiqLocalizationRu();
+    case 'tr':
+      return VaultiqLocalizationTr();
   }
 
   throw FlutterError(
-    'VaultiqLocalization.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+      'VaultiqLocalization.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }
