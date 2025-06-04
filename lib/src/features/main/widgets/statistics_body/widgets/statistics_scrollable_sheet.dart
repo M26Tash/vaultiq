@@ -1,16 +1,21 @@
 // ignore_for_file: unused_element
 
 import 'package:flutter/material.dart';
+import 'package:vaultiq/src/common/constants/app_assets.dart';
 import 'package:vaultiq/src/common/constants/app_dimensions.dart';
 import 'package:vaultiq/src/common/theme/theme_extension.dart';
 import 'package:vaultiq/src/common/widgets/drag_handle_indicator/drag_handle_indicator.dart';
+import 'package:vaultiq/src/common/widgets/transaction_item/transaction_item.dart';
 import 'package:vaultiq/src/common/widgets/vector_image/vector_image.dart';
+import 'package:vaultiq/src/core/domain/entities/transaction_model/transaction_model.dart';
 
 class StatisticsScrollableSheet extends StatelessWidget {
   final ScrollController scrollController;
+  final List<TransactionModel> transactions;
   // final List<ScrollableSheetFilterItem> scrollableSheetFilterItems;
   const StatisticsScrollableSheet({
     required this.scrollController,
+    required this.transactions,
     // required this.scrollableSheetFilterItems,
     super.key,
   });
@@ -33,11 +38,11 @@ class StatisticsScrollableSheet extends StatelessWidget {
       ),
       child: CustomScrollView(
         controller: scrollController,
-        slivers: const [
-          SliverToBoxAdapter(
+        slivers: [
+          const SliverToBoxAdapter(
             child: DragHandleIndicator(),
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: SizedBox(
               height: AppDimensions.large,
             ),
@@ -53,21 +58,18 @@ class StatisticsScrollableSheet extends StatelessWidget {
           //     ],
           //   ),
           // ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: SizedBox(
               height: AppDimensions.medium,
             ),
           ),
-          // for (int i = 0; i < 2; i++)
-          //   const SliverToBoxAdapter(
-          //     child: TransactionItem(
-          //       assetPath: AppAssets.chatGptIcon,
-
-          //       title: 'ChatGPT Subscription',
-          //       date: '27.01.2025 17:20',
-          //       amount: 1070,
-          //     ),
-          //   ),
+          for (final transaction in transactions)
+            SliverToBoxAdapter(
+              child: TransactionItem(
+                assetPath: AppAssets.chatGptIcon,
+                transactionModel: transaction,
+              ),
+            ),
         ],
       ),
     );

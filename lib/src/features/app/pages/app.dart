@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:vaultiq/src/common/cubit_scope/cubit_scope.dart';
 import 'package:vaultiq/src/common/localization/flutter_gen/vaultiq_localizations.dart';
 import 'package:vaultiq/src/common/navigation/route.dart';
@@ -45,10 +46,11 @@ class _AppState extends State<App> {
             child: MaterialApp.router(
               debugShowCheckedModeBanner: false,
               localizationsDelegates: const [
+                LocaleNamesLocalizationsDelegate(),
                 ...VaultiqLocalization.localizationsDelegates,
               ],
               supportedLocales: VaultiqLocalization.supportedLocales,
-              locale: const Locale('en'),
+              locale: appState.locale,
               routerConfig: _appRouter.config(),
             ),
           );

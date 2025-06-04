@@ -48,6 +48,14 @@ abstract final class AppAssets {
   static const String eyeIcon = '${_assetsVectors}eye_icon.svg';
   static const String eyeOffIcon = '${_assetsVectors}eye_off_icon.svg';
   static const String sendIcon = '${_assetsVectors}send_icon.svg';
+  static const String imageAddIcon = '${_assetsVectors}image_add_icon.svg';
+  static const String brushIcon = '${_assetsVectors}brush_icon.svg';
+  static const String privacyPolicyIcon =
+      '${_assetsVectors}privacy_policy_icon.svg';
+  static const String agreementTermsIcon =
+      '${_assetsVectors}agreement_terms_icon.svg';
+  static const String peopleIcon = '${_assetsVectors}people_icon.svg';
+  static const String sortIcon = '${_assetsVectors}sort_icon.svg';
 
   // Cards design path
   static const String turquoiseCard = '${_assetsImages}turquoise_card.png';
@@ -60,6 +68,10 @@ abstract final class AppAssets {
   static const String mirLogo = '${_assetsImages}mir_logo.png';
   static const String visaLogo = '${_assetsImages}visa_logo.png';
   static const String unionPayLogo = '${_assetsImages}union_pay_logo.png';
+
+  // Theme icons path
+  static const String lightThemeIcon = '${_assetsVectors}light_theme_icon.svg';
+  static const String darkThemeIcon = '${_assetsVectors}dark_theme_icon.svg';
 
   // Folder Paths
   static const String _assetsFolder = 'assets/';

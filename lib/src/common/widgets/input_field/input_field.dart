@@ -24,6 +24,8 @@ final class InputField extends StatelessWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final TextStyle? hintStyle;
+  final int? minLines;
+  final int? maxLines;
 
   const InputField({
     this.hintText,
@@ -45,6 +47,8 @@ final class InputField extends StatelessWidget {
     this.prefixIcon,
     this.suffixIcon,
     this.hintStyle,
+    this.minLines = 1,
+    this.maxLines = 2,
     super.key,
   });
 
@@ -69,6 +73,8 @@ final class InputField extends StatelessWidget {
         Form(
           key: formKey,
           child: TextFormField(
+            minLines: minLines,
+            maxLines: maxLines,
             enableInteractiveSelection: enableInteractiveSelection,
             autovalidateMode: AutovalidateMode.disabled,
             initialValue: initialValue,

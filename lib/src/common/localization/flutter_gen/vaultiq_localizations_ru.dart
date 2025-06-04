@@ -60,13 +60,15 @@ class VaultiqLocalizationRu extends VaultiqLocalization {
   String get chooseTheCurrency => 'Выберите валюту';
 
   @override
-  String get selectYourDefaultCurrency => 'Выберите основную валюту. Вы сможете добавить другие позже';
+  String get selectYourDefaultCurrency =>
+      'Выберите основную валюту. Вы сможете добавить другие позже';
 
   @override
   String get search => 'Поиск';
 
   @override
-  String get dontWorryItHappens => 'Не беспокойтесь! Такое бывает. Введите электронную почту, связанную с вашим аккаунтом';
+  String get dontWorryItHappens =>
+      'Не беспокойтесь! Такое бывает. Введите электронную почту, связанную с вашим аккаунтом';
 
   @override
   String get enterYourEmailAddress => 'Введите ваш адрес электронной почты';
@@ -78,10 +80,12 @@ class VaultiqLocalizationRu extends VaultiqLocalization {
   String get enterCode => 'Введите код';
 
   @override
-  String get weveSentAOtpToYOurEmail => 'Мы отправили одноразовый пароль (OTP) на вашу почту ';
+  String get weveSentAOtpToYOurEmail =>
+      'Мы отправили одноразовый пароль (OTP) на вашу почту ';
 
   @override
-  String get invalidOtpTryAgain => 'Неверный OTP. Проверьте код и попробуйте снова';
+  String get invalidOtpTryAgain =>
+      'Неверный OTP. Проверьте код и попробуйте снова';
 
   @override
   String get home => 'Главная';
@@ -129,14 +133,75 @@ class VaultiqLocalizationRu extends VaultiqLocalization {
   String get cryptoRate => 'Курс криптовалют';
 
   @override
-  String get beAwareOfFutureMoneyTendance => 'Будьте в курсе будущих финансовых тенденций';
+  String get beAwareOfFutureMoneyTendance =>
+      'Будьте в курсе будущих финансовых тенденций';
 
   @override
   String get oops => 'Ууупс!';
 
   @override
-  String get somethingWentWrongOnOurEnd => 'Что-то пошло не так на нашей стороне. Пожалуйста, попробуйте снова. Если проблема сохраняется, попробуйте позже.';
+  String get somethingWentWrongOnOurEnd =>
+      'Что-то пошло не так на нашей стороне. Пожалуйста, попробуйте снова. Если проблема сохраняется, попробуйте позже.';
 
   @override
   String get tryAgain => 'Попробовать снова';
+
+  @override
+  String get myBalance => 'Мой баланс';
+
+  @override
+  String get getPlan => 'Получить план';
+
+  @override
+  String get recentTransaction => 'Последняя транзакция';
+
+  @override
+  String get transactions => 'Транзакции';
+
+  @override
+  String get completed => 'Завершено';
+
+  @override
+  String get myAccount => 'Мой аккаунт';
+
+  @override
+  String get makeChangesToYourAccount => 'Внесите изменения в свой аккаунт';
+
+  @override
+  String get faceIdTouchId => 'Face ID / Touch ID';
+
+  @override
+  String get manageYourDeviceSecurity => 'Управляйте безопасностью устройства';
+
+  @override
+  String get language => 'Язык';
+
+  @override
+  String get setYourPreferredAppLanguage =>
+      'Выберите предпочитаемый язык приложения';
+
+  @override
+  String get helpAndSupport => 'Помощь и поддержка';
+
+  @override
+  String get aboutApp => 'О приложении';
+
+  @override
+  String get logOut => 'Выйти';
+
+  @override
+  String get furtherSecureYourAccountForSafety =>
+      'Дополнительно защитите свой аккаунт';
+
+  @override
+  String get username => 'Имя пользователя';
+
+  @override
+  String get fullName => 'Полное имя';
+
+  @override
+  String get email => 'Электронная почта';
+
+  @override
+  String get dateOfBirth => 'Дата рождения';
 }

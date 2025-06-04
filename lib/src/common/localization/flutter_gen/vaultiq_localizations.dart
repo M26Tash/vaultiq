@@ -64,7 +64,8 @@ import 'vaultiq_localizations_tr.dart';
 /// be consistent with the languages listed in the VaultiqLocalization.supportedLocales
 /// property.
 abstract class VaultiqLocalization {
-  VaultiqLocalization(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  VaultiqLocalization(String locale)
+      : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -72,7 +73,8 @@ abstract class VaultiqLocalization {
     return Localizations.of<VaultiqLocalization>(context, VaultiqLocalization)!;
   }
 
-  static const LocalizationsDelegate<VaultiqLocalization> delegate = _VaultiqLocalizationDelegate();
+  static const LocalizationsDelegate<VaultiqLocalization> delegate =
+      _VaultiqLocalizationDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -84,7 +86,8 @@ abstract class VaultiqLocalization {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
     delegate,
     GlobalMaterialLocalizations.delegate,
     GlobalCupertinoLocalizations.delegate,
@@ -270,7 +273,7 @@ abstract class VaultiqLocalization {
   /// No description provided for @more.
   ///
   /// In en, this message translates to:
-  /// **'more'**
+  /// **'More'**
   String get more;
 
   /// No description provided for @news.
@@ -362,38 +365,156 @@ abstract class VaultiqLocalization {
   /// In en, this message translates to:
   /// **'Try again'**
   String get tryAgain;
+
+  /// No description provided for @myBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'My Balance'**
+  String get myBalance;
+
+  /// No description provided for @getPlan.
+  ///
+  /// In en, this message translates to:
+  /// **'Get plan'**
+  String get getPlan;
+
+  /// No description provided for @recentTransaction.
+  ///
+  /// In en, this message translates to:
+  /// **'Recent Transaction'**
+  String get recentTransaction;
+
+  /// No description provided for @transactions.
+  ///
+  /// In en, this message translates to:
+  /// **'Transactions'**
+  String get transactions;
+
+  /// No description provided for @completed.
+  ///
+  /// In en, this message translates to:
+  /// **'Completed'**
+  String get completed;
+
+  /// No description provided for @myAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'My Account'**
+  String get myAccount;
+
+  /// No description provided for @makeChangesToYourAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Make changes to your account'**
+  String get makeChangesToYourAccount;
+
+  /// No description provided for @faceIdTouchId.
+  ///
+  /// In en, this message translates to:
+  /// **'Face ID / Touch ID'**
+  String get faceIdTouchId;
+
+  /// No description provided for @manageYourDeviceSecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Manage your device security'**
+  String get manageYourDeviceSecurity;
+
+  /// No description provided for @language.
+  ///
+  /// In en, this message translates to:
+  /// **'Language'**
+  String get language;
+
+  /// No description provided for @setYourPreferredAppLanguage.
+  ///
+  /// In en, this message translates to:
+  /// **'Set your preferred app language'**
+  String get setYourPreferredAppLanguage;
+
+  /// No description provided for @helpAndSupport.
+  ///
+  /// In en, this message translates to:
+  /// **'Help & Support'**
+  String get helpAndSupport;
+
+  /// No description provided for @aboutApp.
+  ///
+  /// In en, this message translates to:
+  /// **'About App'**
+  String get aboutApp;
+
+  /// No description provided for @logOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out'**
+  String get logOut;
+
+  /// No description provided for @furtherSecureYourAccountForSafety.
+  ///
+  /// In en, this message translates to:
+  /// **'Further secure your account for safety'**
+  String get furtherSecureYourAccountForSafety;
+
+  /// No description provided for @username.
+  ///
+  /// In en, this message translates to:
+  /// **'Username'**
+  String get username;
+
+  /// No description provided for @fullName.
+  ///
+  /// In en, this message translates to:
+  /// **'Full Name'**
+  String get fullName;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @dateOfBirth.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of Birth'**
+  String get dateOfBirth;
 }
 
-class _VaultiqLocalizationDelegate extends LocalizationsDelegate<VaultiqLocalization> {
+class _VaultiqLocalizationDelegate
+    extends LocalizationsDelegate<VaultiqLocalization> {
   const _VaultiqLocalizationDelegate();
 
   @override
   Future<VaultiqLocalization> load(Locale locale) {
-    return SynchronousFuture<VaultiqLocalization>(lookupVaultiqLocalization(locale));
+    return SynchronousFuture<VaultiqLocalization>(
+        lookupVaultiqLocalization(locale));
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'it', 'ru', 'tr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) =>
+      <String>['en', 'it', 'ru', 'tr'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_VaultiqLocalizationDelegate old) => false;
 }
 
 VaultiqLocalization lookupVaultiqLocalization(Locale locale) {
-
-
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return VaultiqLocalizationEn();
-    case 'it': return VaultiqLocalizationIt();
-    case 'ru': return VaultiqLocalizationRu();
-    case 'tr': return VaultiqLocalizationTr();
+    case 'en':
+      return VaultiqLocalizationEn();
+    case 'it':
+      return VaultiqLocalizationIt();
+    case 'ru':
+      return VaultiqLocalizationRu();
+    case 'tr':
+      return VaultiqLocalizationTr();
   }
 
   throw FlutterError(
-    'VaultiqLocalization.delegate failed to load unsupported locale "$locale". This is likely '
-    'an issue with the localizations generation tool. Please file an issue '
-    'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
-  );
+      'VaultiqLocalization.delegate failed to load unsupported locale "$locale". This is likely '
+      'an issue with the localizations generation tool. Please file an issue '
+      'on GitHub with a reproducible sample app and the gen-l10n configuration '
+      'that was used.');
 }

@@ -6,7 +6,11 @@ import 'package:vaultiq/src/common/theme/theme_extension.dart';
 import 'package:vaultiq/src/common/widgets/vector_image/vector_image.dart';
 
 class HomeHeader extends StatelessWidget {
+  final String? fullName;
+  final String? avatarUrl;
   const HomeHeader({
+    required this.fullName,
+    required this.avatarUrl,
     super.key,
   });
 
@@ -16,6 +20,7 @@ class HomeHeader extends StatelessWidget {
       children: [
         CircleAvatar(
           backgroundColor: context.theme.primaryColor,
+          backgroundImage: avatarUrl != null ? NetworkImage(avatarUrl!) : null,
           radius: 25,
         ),
         const SizedBox(width: AppDimensions.medium),
@@ -30,7 +35,7 @@ class HomeHeader extends StatelessWidget {
               ),
             ),
             Text(
-              'Muhammed',
+              fullName ?? '',
               style: context.themeData.textTheme.headlineLarge?.copyWith(
                 color: context.theme.bodyTextColor,
                 fontWeight: AppFonts.weightSemiBold,

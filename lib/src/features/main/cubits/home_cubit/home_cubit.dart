@@ -20,7 +20,6 @@ class HomeCubit extends Cubit<HomeState> {
   ) : super(
           const HomeState(
             rates: ExchangeModel(),
-            transactions: null,
             wallets: null,
             totalBalance: 0,
           ),
@@ -29,16 +28,12 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   StreamSubscription<ExchangeModel?>? _exchangeRateSubscription;
-  StreamSubscription<List<TransactionModel?>?>? _transactionSubscription;
   StreamSubscription<List<WalletModel?>?>? _walletSubscription;
 
   @override
   Future<void> close() {
     _exchangeRateSubscription?.cancel();
     _exchangeRateSubscription = null;
-
-    _transactionSubscription?.cancel();
-    _transactionSubscription = null;
 
     _walletSubscription?.cancel();
     _walletSubscription = null;
@@ -53,24 +48,17 @@ class HomeCubit extends Cubit<HomeState> {
       _onNewExchangeRate,
     );
 
-    _transactionSubscription?.cancel();
-    _transactionSubscription = _dataInteractor.transactionStream.listen(
-      _onNewTransactions,
-    );
-
     _walletSubscription?.cancel();
     _walletSubscription = _dataInteractor.walletStream.listen(
       _onNewWallets,
     );
   }
 
-  Future<void> getTransactions() async {
-    return _dataInteractor.getTransactions();
-  }
 
   Future<void> getWallets() async {
     return _dataInteractor.getWallets();
   }
+
 
   String convert(String currencyCode, double amount, String convertCode) {
     final actualCurrency = state.rates.exchangeRates?.firstWhere(
@@ -99,31 +87,6 @@ class HomeCubit extends Cubit<HomeState> {
         rates: rates,
       ),
     );
-  }
-
-  void _onNewTransactions(List<TransactionModel?>? transactions) {
-    emit(
-      state.copyWith(
-        transactions: transactions,
-      ),
-    );
-
-    // if (transactions!.isNotEmpty) {
-    //   for (final element in transactions) {
-    //     if (element!.transactionType == TransactionType.income) {
-    //       balance += element.defaultAmount;
-    //     } else if (element.transactionType == TransactionType.expense) {
-    //       balance -= element.defaultAmount;
-    //     }
-    //   }
-
-    //   emit(
-    //     state.copyWith(
-    //       transactions: transactions,
-    //       totalBalance: double.parse(balance.toStringAsFixed(2)),
-    //     ),
-    //   );
-    // }
   }
 
   void _onNewWallets(List<WalletModel?>? wallets) {

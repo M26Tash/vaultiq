@@ -60,13 +60,15 @@ class VaultiqLocalizationIt extends VaultiqLocalization {
   String get chooseTheCurrency => 'Scegli la valuta';
 
   @override
-  String get selectYourDefaultCurrency => 'Seleziona la tua valuta predefinita. Puoi aggiungerne altre in seguito';
+  String get selectYourDefaultCurrency =>
+      'Seleziona la tua valuta predefinita. Puoi aggiungerne altre in seguito';
 
   @override
   String get search => 'Cerca';
 
   @override
-  String get dontWorryItHappens => 'Non preoccuparti! Può succedere. Inserisci l\'email associata al tuo account';
+  String get dontWorryItHappens =>
+      'Non preoccuparti! Può succedere. Inserisci l\'email associata al tuo account';
 
   @override
   String get enterYourEmailAddress => 'Inserisci il tuo indirizzo email';
@@ -78,10 +80,12 @@ class VaultiqLocalizationIt extends VaultiqLocalization {
   String get enterCode => 'Inserisci il codice';
 
   @override
-  String get weveSentAOtpToYOurEmail => 'Abbiamo inviato una password temporanea (OTP) alla tua email ';
+  String get weveSentAOtpToYOurEmail =>
+      'Abbiamo inviato una password temporanea (OTP) alla tua email ';
 
   @override
-  String get invalidOtpTryAgain => 'OTP non valido. Controlla il codice e riprova';
+  String get invalidOtpTryAgain =>
+      'OTP non valido. Controlla il codice e riprova';
 
   @override
   String get home => 'Casa';
@@ -129,14 +133,76 @@ class VaultiqLocalizationIt extends VaultiqLocalization {
   String get cryptoRate => 'Tasso di criptovalute';
 
   @override
-  String get beAwareOfFutureMoneyTendance => 'Sii consapevole delle tendenze future del denaro';
+  String get beAwareOfFutureMoneyTendance =>
+      'Sii consapevole delle tendenze future del denaro';
 
   @override
   String get oops => 'Ooops!';
 
   @override
-  String get somethingWentWrongOnOurEnd => 'Qualcosa è andato storto. Per favore, riprova. Se il problema persiste, riprova più tardi.';
+  String get somethingWentWrongOnOurEnd =>
+      'Qualcosa è andato storto. Per favore, riprova. Se il problema persiste, riprova più tardi.';
 
   @override
   String get tryAgain => 'Riprova';
+
+  @override
+  String get myBalance => 'Il mio saldo';
+
+  @override
+  String get getPlan => 'Ottieni piano';
+
+  @override
+  String get recentTransaction => 'Transazione recente';
+
+  @override
+  String get transactions => 'Transazioni';
+
+  @override
+  String get completed => 'Completato';
+
+  @override
+  String get myAccount => 'Il mio account';
+
+  @override
+  String get makeChangesToYourAccount => 'Apporta modifiche al tuo account';
+
+  @override
+  String get faceIdTouchId => 'Face ID / Touch ID';
+
+  @override
+  String get manageYourDeviceSecurity =>
+      'Gestisci la sicurezza del tuo dispositivo';
+
+  @override
+  String get language => 'Lingua';
+
+  @override
+  String get setYourPreferredAppLanguage =>
+      'Imposta la lingua preferita dell\'app';
+
+  @override
+  String get helpAndSupport => 'Aiuto e supporto';
+
+  @override
+  String get aboutApp => 'Informazioni sull\'app';
+
+  @override
+  String get logOut => 'Disconnettersi';
+
+  @override
+  String get furtherSecureYourAccountForSafety =>
+      'Proteggi ulteriormente il tuo account';
+
+  @override
+  String get username => 'Nome utente';
+
+  @override
+  String get fullName => 'Nome completo';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get dateOfBirth => 'Data di nascita';
 }
